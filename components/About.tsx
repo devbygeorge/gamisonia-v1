@@ -1,4 +1,5 @@
 import s from "@/styles/About.module.scss";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -20,7 +21,15 @@ export default function About() {
               reiciendis.
             </p>
           </div>
-          <img className={s.img} src="/images/author.jpg" alt="Author" />
+          <div className={s.img}>
+            <Image
+              src="/images/author.jpg"
+              alt="Author"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </div>
         </div>
       </div>
 

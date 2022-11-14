@@ -1,3 +1,4 @@
+import Image from "next/image";
 import s from "@/styles/Projects.module.scss";
 
 export default function Projects() {
@@ -8,7 +9,13 @@ export default function Projects() {
           <li className={s.listItem}>
             <h3 className={s.type}>Architecture</h3>
             <div className={s.imgWrapper}>
-              <img src="/images/architecture.jpg" alt="Architecture" />
+              <Image
+                src="/images/architecture.jpg"
+                alt="Architecture"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
             </div>
             <h4 className={s.title}>Title</h4>
             <p className={s.desc}>
@@ -19,7 +26,13 @@ export default function Projects() {
           <li className={s.listItem}>
             <h3 className={s.type}>Interior</h3>
             <div className={s.imgWrapper}>
-              <img src="/images/interior.jpg" alt="Interior" />
+              <Image
+                src="/images/interior.jpg"
+                alt="Interior"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
             </div>
             <h4 className={s.title}>Title</h4>
             <p className={s.desc}>
@@ -30,7 +43,13 @@ export default function Projects() {
           <li className={s.listItem}>
             <h3 className={s.type}>Object</h3>
             <div className={s.imgWrapper}>
-              <img src="/images/object.jpg" alt="Object" />
+              <Image
+                src="/images/object.jpg"
+                alt="Object"
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
             </div>
             <h4 className={s.title}>Title</h4>
             <p className={s.desc}>

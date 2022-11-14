@@ -47,9 +47,9 @@
   }
 
   .img {
+    position: relative;
     max-width: 375px;
     height: 450px;
-    object-fit: cover;
     margin-left: 6rem;
 
     @include m.mobile {
