@@ -17,15 +17,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div style={{ marginTop: "15rem" }}></div>
       <Hero />
-      <div style={{ marginTop: "15rem" }}></div>
       <Projects />
-      <div style={{ marginTop: "15rem" }}></div>
       <About />
-      <div style={{ marginTop: "15rem" }}></div>
       <Contact />
-      <div style={{ marginTop: "15rem" }}></div>
       <Footer />
     </>
   );
