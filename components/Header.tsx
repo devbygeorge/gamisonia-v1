@@ -1,43 +1,49 @@
-import styles from "@/styles/Header.module.scss";
+import s from "@/styles/Header.module.scss";
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <div id="header" className={styles.header}>
+    <div id="header" className={s.header}>
       <div className="container">
-        <nav>
-          <ul>
-            <li>
-              <Link href="/">home</Link>
+        <nav className={s.nav}>
+          <ul className={s.list}>
+            <li className={s.item}>
+              <Link className={s.link} href="/">
+                home
+              </Link>
             </li>
-            <li>
-              <Link href="/#projects" scroll={false}>
+            <li className={s.item}>
+              <Link className={s.link} href="/#projects" scroll={false}>
                 projects
               </Link>
             </li>
-            <li>
-              <Link href="/#objects" scroll={false}>
+            <li className={s.item}>
+              <Link className={s.link} href="/#objects" scroll={false}>
                 objects
               </Link>
             </li>
-            <li>
-              <Link href="/#about" scroll={false}>
+            <li className={s.item}>
+              <Link className={s.link} href="/#about" scroll={false}>
                 about
               </Link>
             </li>
-            <li>
-              <Link href="/#contact" scroll={false}>
+            <li className={s.item}>
+              <Link className={s.link} href="/#contact" scroll={false}>
                 contact
               </Link>
             </li>
           </ul>
 
-          <ul>
-            <li>
-              <Link href="#">Eng</Link>
+          <ul className={s.list}>
+            <li className={s.item}>
+              <Link className={s.link} href="#">
+                Eng
+              </Link>
             </li>
-            <li>
-              <Link href="#">Geo</Link>
+            <li className={s.item}>
+              <Link className={s.link} href="#">
+                Geo
+              </Link>
             </li>
           </ul>
         </nav>

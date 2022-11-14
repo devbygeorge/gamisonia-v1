@@ -1,24 +1,31 @@
+@use "./mixins.scss" as m;
+
 .header {
-  padding: 1rem 0;
+  padding: 1.1rem 0;
   background-color: var(--color-dark);
 
-  nav {
+  .nav {
     display: flex;
     justify-content: space-between;
+  }
 
-    ul {
-      display: flex;
-      gap: 1rem;
+  .list {
+    display: flex;
+    gap: 1rem;
+  }
 
-      a {
-        font-family: Aquire;
-        font-weight: 700;
-        color: var(--color-light);
+  .link {
+    font-family: Aquire;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--color-light);
 
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include m.mobile {
+      font-size: 0.9rem;
     }
   }
 }
