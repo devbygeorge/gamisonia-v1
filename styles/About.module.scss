@@ -1,0 +1,65 @@
+@use "./mixins.scss" as m;
+
+.about {
+  .content {
+    background-color: var(--color-light);
+    padding: 4rem 0;
+
+    @include m.mobile {
+      padding: 1rem 0;
+    }
+
+    > div {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include m.mobile {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  .text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: justify;
+    padding-inline: 6rem 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    span {
+      font-family: Aquire;
+      font-weight: 700;
+      font-size: 1.5rem;
+
+      @include m.mobile {
+        font-size: 1.25rem;
+      }
+    }
+
+    @include m.mobile {
+      font-size: 1rem;
+      padding-inline: 0;
+    }
+  }
+
+  .img {
+    max-width: 375px;
+    height: 450px;
+    object-fit: cover;
+    margin-left: 6rem;
+
+    @include m.mobile {
+      margin: 0;
+      height: 300px;
+    }
+  }
+
+  .end {
+    height: 3rem;
+    background-color: var(--color-dark);
+  }
+}

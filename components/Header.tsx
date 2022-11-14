@@ -1,34 +1,65 @@
-import s from "@/styles/Header.module.scss";
+import { useState } from "react";
 import Link from "next/link";
+import s from "@/styles/Header.module.scss";
 
 export default function Header() {
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
     <div id="header" className={s.header}>
       <div className="container">
-        <nav className={s.nav}>
+        <div
+          className={`${s.toggle} ${menuActive ? s.toggleActive : ""}`}
+          onClick={() => setMenuActive((prevState) => !prevState)}
+        ></div>
+        <nav className={`${s.nav}  ${menuActive ? s.menuActive : ""}`}>
           <ul className={s.list}>
             <li className={s.item}>
-              <Link className={s.link} href="/">
+              <Link
+                className={s.link}
+                href="/"
+                onClick={() => setMenuActive((prevState) => false)}
+              >
                 home
               </Link>
             </li>
             <li className={s.item}>
-              <Link className={s.link} href="/#projects" scroll={false}>
+              <Link
+                className={s.link}
+                href="/#projects"
+                scroll={false}
+                onClick={() => setMenuActive((prevState) => false)}
+              >
                 projects
               </Link>
             </li>
             <li className={s.item}>
-              <Link className={s.link} href="/#objects" scroll={false}>
+              <Link
+                className={s.link}
+                href="/#objects"
+                scroll={false}
+                onClick={() => setMenuActive((prevState) => false)}
+              >
                 objects
               </Link>
             </li>
             <li className={s.item}>
-              <Link className={s.link} href="/#about" scroll={false}>
+              <Link
+                className={s.link}
+                href="/#about"
+                scroll={false}
+                onClick={() => setMenuActive((prevState) => false)}
+              >
                 about
               </Link>
             </li>
             <li className={s.item}>
-              <Link className={s.link} href="/#contact" scroll={false}>
+              <Link
+                className={s.link}
+                href="/#contact"
+                scroll={false}
+                onClick={() => setMenuActive((prevState) => false)}
+              >
                 contact
               </Link>
             </li>

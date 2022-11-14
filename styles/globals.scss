@@ -26,7 +26,7 @@
 // Reset Styles
 html,
 body {
-  font-family: Roboto, sans-serif;
+  font-family: Ubuntu, sans-serif;
 }
 
 html {
@@ -59,4 +59,12 @@ img {
   max-width: 1320px;
   margin-inline: auto;
   padding: 0 1rem;
+}
+
+.section-heading {
+  padding: 1rem 0;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-family: Aquire;
+  text-align: center;
 }
