@@ -49,6 +49,11 @@ ol {
   list-style-type: none;
 }
 
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
 // Global Styles
 .container {
   max-width: 1320px;

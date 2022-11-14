@@ -1,0 +1,12 @@
+// Mixins
+@mixin desktop() {
+  @media (min-width: 64em) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: 63.938em) {
+    @content;
+  }
+}
