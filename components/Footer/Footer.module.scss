@@ -7,7 +7,7 @@
   .list {
     display: flex;
     justify-content: flex-end;
-    gap: 2rem;
+    gap: 1.75rem;
 
     @include m.mobile {
       justify-content: center;
@@ -18,9 +18,10 @@
 
   .link {
     color: var(--color-light);
+    font-size: 1.25rem;
 
     &:hover {
-      text-decoration: underline;
+      color: white;
     }
   }
 }

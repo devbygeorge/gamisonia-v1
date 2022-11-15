@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import s from "./Header.module.scss";
+import Image from "next/legacy/image";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
@@ -36,7 +37,7 @@ export default function Header() {
             <li className={s.item}>
               <Link
                 className={s.link}
-                href="/#objects"
+                href="/#projects"
                 scroll={false}
                 onClick={() => setMenuActive((prevState) => false)}
               >
@@ -65,18 +66,14 @@ export default function Header() {
             </li>
           </ul>
 
-          <ul className={s.list}>
-            <li className={s.item}>
-              <Link className={s.link} href="#">
-                Eng
-              </Link>
-            </li>
-            <li className={s.item}>
-              <Link className={s.link} href="#">
-                Geo
-              </Link>
-            </li>
-          </ul>
+          <div className={s.flags}>
+            <div className={s.flag}>
+              <Image src="/images/uk-flag.png" alt="us flag" layout="fill" />
+            </div>
+            <div className={s.flag}>
+              <Image src="/images/ge-flag.png" alt="ge flag" layout="fill" />
+            </div>
+          </div>
         </nav>
       </div>
     </div>

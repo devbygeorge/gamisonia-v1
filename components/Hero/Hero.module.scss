@@ -33,6 +33,9 @@
     font-weight: 700;
     font-size: 5rem;
 
+    color: var(--color-light);
+    text-shadow: -3px 3px var(--color-dark);
+
     @include m.mobile {
       bottom: 5.75rem;
       font-size: 3rem;

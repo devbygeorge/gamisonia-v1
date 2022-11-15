@@ -33,7 +33,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className={s.end}></div>
+      {/* <div className={s.end}></div> */}
     </div>
   );
 }

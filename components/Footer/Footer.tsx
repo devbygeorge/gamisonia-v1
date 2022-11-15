@@ -1,4 +1,11 @@
 import s from "./Footer.module.scss";
+import { FaTiktok } from "react-icons/fa";
+import {
+  BsInstagram,
+  BsFacebook,
+  BsTwitter,
+  BsPinterest,
+} from "react-icons/bs";
 
 export default function Footer() {
   return (
@@ -12,7 +19,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              Instragram
+              <BsInstagram />
             </a>
           </li>
           <li className={s.item}>
@@ -22,7 +29,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              Facebook
+              <BsFacebook />
             </a>
           </li>
           <li className={s.item}>
@@ -32,7 +39,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              Twitter
+              <BsTwitter />
             </a>
           </li>
           <li className={s.item}>
@@ -42,7 +49,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              Pinterest
+              <BsPinterest />
             </a>
           </li>
           <li className={s.item}>
@@ -52,7 +59,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              Tiktok
+              <FaTiktok />
             </a>
           </li>
         </ul>

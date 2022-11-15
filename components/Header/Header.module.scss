@@ -12,6 +12,7 @@
       right: 1rem;
       top: 0.925rem;
       z-index: 2;
+      cursor: pointer;
 
       width: 1.25rem;
       height: 0.85rem;
@@ -26,10 +27,12 @@
   .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     @include m.mobile {
       flex-direction: column;
       justify-content: flex-start;
+      align-items: flex-start;
       gap: 1rem;
 
       width: 50%;
@@ -61,6 +64,7 @@
     font-family: Aquire;
     font-weight: 700;
     font-size: 1.15rem;
+    line-height: 0;
     color: var(--color-light);
 
     &:hover {
@@ -79,5 +83,24 @@
 
   .toggleActive {
     background-image: url("/images/close-icon.svg");
+  }
+
+  .flags {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .flag {
+    width: 30px;
+    height: 20px;
+
+    transition: 0.3s;
+    filter: grayscale(1);
+    cursor: pointer;
+
+    &:last-child {
+      height: 18px;
+      margin-top: 1px;
+    }
   }
 }

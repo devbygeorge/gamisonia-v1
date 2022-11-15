@@ -54,12 +54,12 @@
 
     @include m.mobile {
       margin: 0;
-      height: 300px;
+      height: 400px;
     }
   }
 
-  .end {
-    height: 3rem;
-    background-color: var(--color-dark);
-  }
+  // .end {
+  //   height: 3rem;
+  //   background-color: var(--color-dark);
+  // }
 }

@@ -4,6 +4,7 @@
   background-color: var(--color-dark);
   color: var(--color-light);
   font-family: Aquire;
+  padding: 1.25rem 0;
 
   .list {
     display: grid;
@@ -15,21 +16,39 @@
   }
 
   .listItem {
-    padding: 1.25rem 0.75rem;
     border-right: 1px solid var(--color-light);
 
-    &:last-child {
-      border: 0;
-      padding-right: 0;
+    &:first-child {
+      padding-right: 0.75rem;
     }
 
-    &:first-child {
-      padding-left: 0;
+    &:nth-child(2) {
+      padding-inline: 0.75rem;
+    }
+
+    &:last-child {
+      padding-left: 0.75rem;
+      border: 0;
     }
 
     @include m.mobile {
       border: 0;
       padding-inline: 0;
+      padding: 0;
+
+      &:first-child {
+        padding: 0;
+        margin-bottom: 1.25rem;
+      }
+
+      &:nth-child(2) {
+        padding: 0;
+        margin-bottom: 1.25rem;
+      }
+
+      &:last-child {
+        padding: 0;
+      }
     }
   }
 
@@ -55,5 +74,9 @@
     position: relative;
     height: 520px;
     margin-bottom: 0.75rem;
+
+    @include m.mobile {
+      height: 220px;
+    }
   }
 }

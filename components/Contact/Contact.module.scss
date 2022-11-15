@@ -42,6 +42,9 @@
     &:focus {
       outline: 1px solid #444;
     }
+
+    -webkit-appearance: none;
+    resize: vertical;
   }
 
   .submit {
