@@ -87,20 +87,12 @@
 
   .flags {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
   }
 
   .flag {
-    width: 30px;
-    height: 20px;
-
-    transition: 0.3s;
-    filter: grayscale(1);
+    filter: grayscale(0.4);
     cursor: pointer;
-
-    &:last-child {
-      height: 18px;
-      margin-top: 1px;
-    }
   }
 }

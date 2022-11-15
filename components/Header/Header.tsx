@@ -68,10 +68,20 @@ export default function Header() {
 
           <div className={s.flags}>
             <div className={s.flag}>
-              <Image src="/images/uk-flag.png" alt="us flag" layout="fill" />
+              <Image
+                src="/images/uk-flag.png"
+                alt="us flag"
+                width={30}
+                height={20}
+              />
             </div>
             <div className={s.flag}>
-              <Image src="/images/ge-flag.png" alt="ge flag" layout="fill" />
+              <Image
+                src="/images/ge-flag.png"
+                alt="ge flag"
+                width={30}
+                height={20}
+              />
             </div>
           </div>
         </nav>

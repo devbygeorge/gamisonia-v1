@@ -39,6 +39,7 @@
     @include m.mobile {
       bottom: 5.75rem;
       font-size: 3rem;
+      text-shadow: -2px 2px var(--color-dark);
     }
   }
 }
