@@ -1,4 +1,4 @@
-import s from "@/styles/Contact.module.scss";
+import s from "./Contact.module.scss";
 import React, { useState } from "react";
 
 export default function Contact() {

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import s from "@/styles/Projects.module.scss";
+import Image from "next/legacy/image";
+import s from "./Projects.module.scss";
 
 export default function Projects() {
   return (

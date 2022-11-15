@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import s from "@/styles/Header.module.scss";
+import s from "./Header.module.scss";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);

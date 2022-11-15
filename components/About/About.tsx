@@ -1,5 +1,5 @@
-import s from "@/styles/About.module.scss";
-import Image from "next/image";
+import Image from "next/legacy/image";
+import s from "./About.module.scss";
 
 export default function About() {
   return (
