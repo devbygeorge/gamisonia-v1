@@ -1,3 +1,5 @@
+@use "./mixins.scss" as mix;
+
 // Import Fonts
 @font-face {
   font-family: Aquire;
@@ -67,4 +69,19 @@ img {
   color: var(--color-light);
   font-family: Aquire;
   text-align: center;
+}
+
+.desktop-snap {
+  @include mix.desktop {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+}
+
+.desktop-snap-child {
+  @include mix.desktop {
+    scroll-snap-align: center;
+  }
 }

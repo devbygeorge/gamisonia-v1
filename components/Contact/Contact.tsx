@@ -5,9 +5,7 @@ export default function Contact() {
   const [values, setValues] = useState({
     name: "",
     email: "",
-    reason: "0",
     phone: "",
-    order: "",
     message: "",
   });
 
@@ -16,9 +14,7 @@ export default function Contact() {
     setValues({
       name: "",
       email: "",
-      reason: "0",
       phone: "",
-      order: "",
       message: "",
     });
   };
@@ -48,7 +44,7 @@ export default function Contact() {
             />
             <input
               className={s.field}
-              type="text"
+              type="email"
               placeholder="Email*"
               required
               value={values.email}
@@ -59,27 +55,10 @@ export default function Contact() {
                 }))
               }
             />
-            <select
-              style={{ cursor: "pointer" }}
-              className={s.field}
-              value={values.reason}
-              onChange={(e) =>
-                setValues((prevState) => ({
-                  ...prevState,
-                  reason: e.target.value,
-                }))
-              }
-            >
-              <option value="0" disabled>
-                Reason for Contact
-              </option>
-              <option value="1">Reason One</option>
-              <option value="2">Reason Two</option>
-              <option value="3">Other</option>
-            </select>
             <input
               className={s.field}
-              type="text"
+              type="tel"
+              pattern="[+]?[0-9]+"
               placeholder="Phone"
               value={values.phone}
               onChange={(e) =>
@@ -89,21 +68,9 @@ export default function Contact() {
                 }))
               }
             />
-            <input
-              className={s.field}
-              type="text"
-              placeholder="Order Number"
-              value={values.order}
-              onChange={(e) =>
-                setValues((prevState) => ({
-                  ...prevState,
-                  order: e.target.value,
-                }))
-              }
-            />
             <textarea
               className={s.field}
-              rows={1}
+              rows={6}
               placeholder="Message"
               value={values.message}
               onChange={(e) =>

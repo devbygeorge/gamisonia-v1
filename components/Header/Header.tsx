@@ -1,7 +1,8 @@
-import { useState } from "react";
 import Link from "next/link";
-import s from "./Header.module.scss";
 import Image from "next/legacy/image";
+import { useState } from "react";
+
+import s from "./Header.module.scss";
 
 export default function Header() {
   const [menuActive, setMenuActive] = useState(false);
@@ -19,7 +20,7 @@ export default function Header() {
               <Link
                 className={s.link}
                 href="/"
-                onClick={() => setMenuActive((prevState) => false)}
+                onClick={() => setMenuActive(false)}
               >
                 home
               </Link>
@@ -29,7 +30,7 @@ export default function Header() {
                 className={s.link}
                 href="/#projects"
                 scroll={false}
-                onClick={() => setMenuActive((prevState) => false)}
+                onClick={() => setMenuActive(false)}
               >
                 projects
               </Link>
@@ -37,19 +38,9 @@ export default function Header() {
             <li className={s.item}>
               <Link
                 className={s.link}
-                href="/#projects"
-                scroll={false}
-                onClick={() => setMenuActive((prevState) => false)}
-              >
-                objects
-              </Link>
-            </li>
-            <li className={s.item}>
-              <Link
-                className={s.link}
                 href="/#about"
                 scroll={false}
-                onClick={() => setMenuActive((prevState) => false)}
+                onClick={() => setMenuActive(false)}
               >
                 about
               </Link>
@@ -59,7 +50,7 @@ export default function Header() {
                 className={s.link}
                 href="/#contact"
                 scroll={false}
-                onClick={() => setMenuActive((prevState) => false)}
+                onClick={() => setMenuActive(false)}
               >
                 contact
               </Link>
