@@ -8,15 +8,50 @@ export default function Contact({ pageInfo }: any) {
     phone: "",
     message: "",
   });
+  const [showSuccessResponse, setShowSuccessResponse] = useState(false);
+  const [showFailureResponse, setShowFailureResponse] = useState(false);
+  const [isSubmitDisabled, setSubmitDisabled] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Clear input values
     setValues({
       name: "",
       email: "",
       phone: "",
       message: "",
     });
+
+    setSubmitDisabled(true);
+
+    // Send data to backend
+    const res = await fetch("/api/mail", {
+      method: "post",
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+      }),
+    });
+
+    // Show correct responses
+    if (res.status === 200) {
+      setShowSuccessResponse(true);
+
+      setTimeout(() => {
+        setShowSuccessResponse(false);
+        setSubmitDisabled(false);
+      }, 2000);
+    } else {
+      setShowFailureResponse(true);
+
+      setTimeout(() => {
+        setShowFailureResponse(false);
+        setSubmitDisabled(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -69,6 +104,7 @@ export default function Contact({ pageInfo }: any) {
               className={s.field}
               rows={6}
               placeholder="Message"
+              required
               value={values.message}
               onChange={(e) =>
                 setValues((prevState) => ({
@@ -77,7 +113,26 @@ export default function Contact({ pageInfo }: any) {
                 }))
               }
             ></textarea>
-            <button className={s.submit} type="submit">
+            <p
+              className={`${s.response} ${
+                showSuccessResponse ? s.showResponse : ""
+              }`}
+            >
+              Message sent successfully..
+            </p>
+            <p
+              className={`${s.response} ${
+                showFailureResponse ? s.showResponse : ""
+              }`}
+            >
+              Message sent failed..
+            </p>
+            <button
+              className={`${s.submit} ${
+                isSubmitDisabled ? s.submitDisabled : ""
+              }`}
+              type="submit"
+            >
               Submit
             </button>
           </form>

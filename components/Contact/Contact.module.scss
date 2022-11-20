@@ -27,6 +27,7 @@
 
     max-width: 400px;
     margin-inline: auto;
+    position: relative;
   }
 
   .field {
@@ -60,5 +61,22 @@
     &:hover {
       opacity: 0.96;
     }
+  }
+
+  .submitDisabled {
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .response {
+    font-size: 0.88rem;
+    color: #333;
+
+    line-height: 0;
+    display: none;
+  }
+
+  .showResponse {
+    display: block;
   }
 }
