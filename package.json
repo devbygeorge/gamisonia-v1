@@ -18,10 +18,14 @@
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
     "next-sanity": "^2.0.2",
+    "nodemailer": "^6.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-social-icons": "^5.15.0",
     "sass": "^1.56.1",
     "typescript": "4.8.4"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.6"
   }
 }
