@@ -80,8 +80,20 @@ img {
   }
 }
 
-.desktop-snap-child {
+.desktop-snap-start {
+  @include mix.desktop {
+    scroll-snap-align: start;
+  }
+}
+
+.desktop-snap-center {
   @include mix.desktop {
     scroll-snap-align: center;
+  }
+}
+
+.desktop-snap-end {
+  @include mix.desktop {
+    scroll-snap-align: end;
   }
 }

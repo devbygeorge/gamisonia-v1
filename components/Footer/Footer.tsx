@@ -1,67 +1,37 @@
+import { SocialIcon } from "react-social-icons";
 import s from "./Footer.module.scss";
-import { FaTiktok } from "react-icons/fa";
-import {
-  BsInstagram,
-  BsFacebook,
-  BsTwitter,
-  BsPinterest,
-} from "react-icons/bs";
 
-export default function Footer() {
+type socialProps = {
+  _id: string;
+  title: string;
+  url: string;
+};
+
+export default function Footer({ socials }: any) {
+  const sortedSocials = socials?.sort((a: socialProps, b: socialProps) =>
+    ("" + a.title).localeCompare(b.title)
+  );
+
   return (
     <div id="footer" className={s.footer}>
       <div className="container">
         <ul className={s.list}>
-          <li className={s.item}>
-            <a
-              className={s.link}
-              href="https://instagram.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsInstagram />
-            </a>
-          </li>
-          <li className={s.item}>
-            <a
-              className={s.link}
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsFacebook />
-            </a>
-          </li>
-          <li className={s.item}>
-            <a
-              className={s.link}
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsTwitter />
-            </a>
-          </li>
-          <li className={s.item}>
-            <a
-              className={s.link}
-              href="https://pinterest.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsPinterest />
-            </a>
-          </li>
-          <li className={s.item}>
-            <a
-              className={s.link}
-              href="https://tiktok.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaTiktok />
-            </a>
-          </li>
+          {sortedSocials?.map((social: socialProps) => (
+            <li key={social?._id} className={s.item}>
+              <SocialIcon
+                url={social?.url}
+                fgColor="rgb(230,230,230)"
+                bgColor="transparent"
+                className={s.link}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  width: "45px",
+                  height: "45px",
+                }}
+              />
+            </li>
+          ))}
         </ul>
       </div>
     </div>

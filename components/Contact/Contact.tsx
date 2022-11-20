@@ -1,7 +1,7 @@
 import s from "./Contact.module.scss";
 import React, { useState } from "react";
 
-export default function Contact() {
+export default function Contact({ pageInfo }: any) {
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -24,10 +24,7 @@ export default function Contact() {
       <h2 className="section-heading">contact</h2>
       <div className="container">
         <div className={s.content}>
-          <p className={s.info}>
-            For immediate assistance during business hours, Monday through
-            Friday 9am-7pm PT, please call +1-855-295-3559.
-          </p>
+          <p className={s.info}>{pageInfo?.contactText}</p>
           <form className={s.form} onSubmit={handleSubmit}>
             <input
               className={s.field}

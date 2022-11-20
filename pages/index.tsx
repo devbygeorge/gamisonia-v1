@@ -1,4 +1,8 @@
 import Head from "next/head";
+import { GetStaticProps } from "next";
+
+import { groq } from "next-sanity";
+import { sanityClient } from "sanity";
 
 // Import Components
 import Header from "@/components/Header";
@@ -8,7 +12,13 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+type Props = {
+  pageInfo: any;
+  projects: any;
+  socials: any;
+};
+
+export default function Home({ pageInfo, projects, socials }: Props) {
   return (
     <div className="desktop-snap">
       <Head>
@@ -17,20 +27,51 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <Hero />
-
-      <div className="desktop-snap-child">
-        <Projects />
-      </div>
-      <div className="desktop-snap-child">
-        <About />
-      </div>
-      <div className="desktop-snap-child">
-        <Contact />
+      <div className="desktop-snap-start">
+        <Header />
+        <Hero pageInfo={pageInfo} />
       </div>
 
-      <Footer />
+      <div className="desktop-snap-center">
+        <Projects projects={projects} />
+      </div>
+      <div className="desktop-snap-center">
+        <About pageInfo={pageInfo} />
+      </div>
+      <div className="desktop-snap-center">
+        <Contact pageInfo={pageInfo} />
+      </div>
+
+      <div className="desktop-snap-end">
+        <Footer socials={socials} />
+      </div>
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfoQuery = groq`
+    *[_type == "pageInfo"][0]
+  `;
+
+  const projectsQuery = groq`
+    *[_type == "project"]
+  `;
+
+  const socialsQuery = groq`
+    *[_type == "social"]
+  `;
+
+  const pageInfo = await sanityClient.fetch(pageInfoQuery);
+  const projects = await sanityClient.fetch(projectsQuery);
+  const socials = await sanityClient.fetch(socialsQuery);
+
+  return {
+    props: {
+      pageInfo,
+      projects,
+      socials,
+    },
+    revalidate: 10,
+  };
+};

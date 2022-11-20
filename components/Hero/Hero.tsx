@@ -1,12 +1,13 @@
 import Image from "next/legacy/image";
+import { urlFor } from "sanity";
 import s from "./Hero.module.scss";
 
-export default function Hero() {
+export default function Hero({ pageInfo }: any) {
   return (
     <div id="hero" className={s.hero}>
       <div className={s.img}>
         <Image
-          src="/images/interior.jpg"
+          src={urlFor(pageInfo?.heroImage).url()}
           alt="Interior"
           layout="fill"
           objectFit="cover"
@@ -16,7 +17,7 @@ export default function Hero() {
       </div>
 
       <div className={`container ${s.textWrapper}`}>
-        <h1 className={s.heading}>gamisonia</h1>
+        <h1 className={s.heading}>{pageInfo?.heroTitle}</h1>
       </div>
     </div>
   );

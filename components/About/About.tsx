@@ -1,7 +1,8 @@
 import Image from "next/legacy/image";
+import { urlFor } from "sanity";
 import s from "./About.module.scss";
 
-export default function About() {
+export default function About({ pageInfo }: any) {
   return (
     <div id="about" className={s.about}>
       <h2 className="section-heading">about</h2>
@@ -9,21 +10,12 @@ export default function About() {
       <div className={s.content}>
         <div className="container">
           <div className={s.text}>
-            <span>Info..</span>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Quibusdam vitae, numquam possimus culpa labore maxime dolor eos
-              libero iure? Ut hic reprehenderit, pariatur vel sint odit, unde,
-              et provident enim eos blanditiis inventore alias consectetur
-              voluptatem! Doloribus error velit, eligendi obcaecati modi hic
-              repellendus illo earum totam aspernatur magnam dolor deleniti
-              fugiat debitis. Sunt aperiam sequi recusandae commodi praesentium
-              reiciendis.
-            </p>
+            <span>{pageInfo?.aboutTitle}</span>
+            <p>{pageInfo?.aboutInfo}</p>
           </div>
           <div className={s.img}>
             <Image
-              src="/images/author.jpg"
+              src={urlFor(pageInfo?.aboutImage).url()}
               alt="Author"
               layout="fill"
               objectFit="cover"
@@ -32,8 +24,6 @@ export default function About() {
           </div>
         </div>
       </div>
-
-      {/* <div className={s.end}></div> */}
     </div>
   );
 }
