@@ -1,7 +1,19 @@
 import s from "./Contact.module.scss";
 import React, { useState } from "react";
 
-export default function Contact({ pageInfo }: any) {
+type Props = {
+  pageInfo: any;
+  translations: {
+    contact: string;
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+    submit: string;
+  };
+};
+
+export default function Contact({ pageInfo, translations }: Props) {
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -56,7 +68,7 @@ export default function Contact({ pageInfo }: any) {
 
   return (
     <div id="contact" className={s.contact}>
-      <h2 className="section-heading">contact</h2>
+      <h2 className="section-heading">{translations.contact}</h2>
       <div className="container">
         <div className={s.content}>
           <p className={s.info}>{pageInfo?.contactText}</p>
@@ -64,7 +76,7 @@ export default function Contact({ pageInfo }: any) {
             <input
               className={s.field}
               type="text"
-              placeholder="First And Last Name*"
+              placeholder={translations.name}
               required
               value={values.name}
               onChange={(e) =>
@@ -77,7 +89,7 @@ export default function Contact({ pageInfo }: any) {
             <input
               className={s.field}
               type="email"
-              placeholder="Email*"
+              placeholder={translations.email}
               required
               value={values.email}
               onChange={(e) =>
@@ -91,7 +103,7 @@ export default function Contact({ pageInfo }: any) {
               className={s.field}
               type="tel"
               pattern="[+]?[0-9]+"
-              placeholder="Phone"
+              placeholder={translations.phone}
               value={values.phone}
               onChange={(e) =>
                 setValues((prevState) => ({
@@ -103,7 +115,7 @@ export default function Contact({ pageInfo }: any) {
             <textarea
               className={s.field}
               rows={6}
-              placeholder="Message"
+              placeholder={translations.message}
               required
               value={values.message}
               onChange={(e) =>
@@ -133,7 +145,7 @@ export default function Contact({ pageInfo }: any) {
               }`}
               type="submit"
             >
-              Submit
+              {translations.submit}
             </button>
           </form>
         </div>

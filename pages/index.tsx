@@ -12,6 +12,9 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+import { useRouter } from "next/router";
+import { en, ge } from "translations";
+
 type Props = {
   pageInfo: any;
   projects: any;
@@ -19,6 +22,11 @@ type Props = {
 };
 
 export default function Home({ pageInfo, projects, socials }: Props) {
+  const router = useRouter();
+  const { locale } = router;
+
+  const translations = locale === "en" ? en : ge;
+
   return (
     <div className="desktop-snap">
       <Head>
@@ -28,18 +36,18 @@ export default function Home({ pageInfo, projects, socials }: Props) {
       </Head>
 
       <div className="desktop-snap-start">
-        <Header />
-        <Hero pageInfo={pageInfo} />
+        <Header translations={translations} />
+        <Hero pageInfo={pageInfo} translations={translations} />
       </div>
 
       <div className="desktop-snap-center">
-        <Projects projects={projects} />
+        <Projects projects={projects} translations={translations} />
       </div>
       <div className="desktop-snap-center">
-        <About pageInfo={pageInfo} />
+        <About pageInfo={pageInfo} translations={translations} />
       </div>
       <div className="desktop-snap-center">
-        <Contact pageInfo={pageInfo} />
+        <Contact pageInfo={pageInfo} translations={translations} />
       </div>
 
       <div className="desktop-snap-end">
@@ -49,13 +57,26 @@ export default function Home({ pageInfo, projects, socials }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const pageInfoQuery = groq`
-    *[_type == "pageInfo"][0]
+    *[_type == "pageInfo"][0] {
+      "heroTitle": heroTitle.${locale},
+      "heroImage": heroImage,
+      "aboutTitle": aboutTitle.${locale},
+      "aboutInfo": aboutInfo.${locale},
+      "aboutImage": aboutImage,
+      "contactText": contactText.${locale},
+    }
   `;
 
   const projectsQuery = groq`
-    *[_type == "project"]
+    *[_type == "project"] {
+      "_id": _id,
+      "category": category.${locale},
+      "title": title.${locale},
+      "description": description.${locale},
+      "image": image
+    }
   `;
 
   const socialsQuery = groq`
