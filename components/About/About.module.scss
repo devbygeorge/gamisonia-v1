@@ -13,8 +13,6 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       place-items: center;
-      // justify-content: center;
-      // place-content: center;
 
       @include m.mobile {
         grid-template-columns: 1fr;
