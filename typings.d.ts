@@ -48,4 +48,6 @@ export interface Translations {
   phone: string;
   message: string;
   submit: string;
+  success_message: string,
+  failure_message: string,
 }

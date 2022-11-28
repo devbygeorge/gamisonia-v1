@@ -9,6 +9,9 @@ export const en = {
   phone: "Phone",
   message: "Message*",
   submit: "Submit",
+
+  success_message: "Message sent successfully..",
+  failure_message: "Failed to send message..",
 };
 
 export const ge = {
@@ -22,4 +25,7 @@ export const ge = {
   phone: "ტელეფონი",
   message: "შეტყობინება*",
   submit: "გაგზავნა",
+
+  success_message: "შეტყობინება წარმატებით გაიგზავნა..",
+  failure_message: "შეტყობინების გაგზავნა ვერ მოხერხდა..",
 };

@@ -124,14 +124,14 @@ export default function Contact({ pageInfo, translations }: Props) {
                 showSuccessResponse ? s.showResponse : ""
               }`}
             >
-              Message sent successfully..
+              {translations.success_message}
             </p>
             <p
               className={`${s.response} ${
                 showFailureResponse ? s.showResponse : ""
               }`}
             >
-              Message sent failed..
+              {translations.failure_message}
             </p>
             <button
               className={`${s.submit} ${
