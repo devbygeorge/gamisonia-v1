@@ -1,8 +1,13 @@
 import Image from "next/legacy/image";
+import { PageInfo } from "typings";
 import { urlFor } from "sanity";
 import s from "./Hero.module.scss";
 
-export default function Hero({ pageInfo }: any) {
+type Props = {
+  pageInfo: PageInfo;
+};
+
+export default function Hero({ pageInfo }: Props) {
   return (
     <div id="hero" className={s.hero}>
       <div className={s.img}>

@@ -1,14 +1,13 @@
 import { SocialIcon } from "react-social-icons";
+import { Social } from "typings";
 import s from "./Footer.module.scss";
 
-type socialProps = {
-  _id: string;
-  title: string;
-  url: string;
+type Props = {
+  socials: Social[];
 };
 
-export default function Footer({ socials }: any) {
-  const sortedSocials = socials?.sort((a: socialProps, b: socialProps) =>
+export default function Footer({ socials }: Props) {
+  const sortedSocials = socials?.sort((a, b) =>
     ("" + a.title).localeCompare(b.title)
   );
 
@@ -16,7 +15,7 @@ export default function Footer({ socials }: any) {
     <div id="footer" className={s.footer}>
       <div className="container">
         <ul className={s.list}>
-          {sortedSocials?.map((social: socialProps) => (
+          {sortedSocials?.map((social) => (
             <li key={social?._id} className={s.item}>
               <SocialIcon
                 url={social?.url}

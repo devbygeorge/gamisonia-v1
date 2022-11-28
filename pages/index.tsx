@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
+import { PageInfo, Project, Social } from "typings";
 
 import { groq } from "next-sanity";
 import { sanityClient } from "sanity";
@@ -16,9 +17,9 @@ import { useRouter } from "next/router";
 import { en, ge } from "translations";
 
 type Props = {
-  pageInfo: any;
-  projects: any;
-  socials: any;
+  pageInfo: PageInfo;
+  projects: Project[];
+  socials: Social[];
 };
 
 export default function Home({ pageInfo, projects, socials }: Props) {
@@ -37,11 +38,11 @@ export default function Home({ pageInfo, projects, socials }: Props) {
 
       <div className="desktop-snap-start">
         <Header translations={translations} />
-        <Hero pageInfo={pageInfo} translations={translations} />
+        <Hero pageInfo={pageInfo} />
       </div>
 
       <div className="desktop-snap-center">
-        <Projects projects={projects} translations={translations} />
+        <Projects projects={projects} />
       </div>
       <div className="desktop-snap-center">
         <About pageInfo={pageInfo} translations={translations} />

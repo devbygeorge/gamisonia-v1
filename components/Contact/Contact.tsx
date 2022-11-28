@@ -1,16 +1,10 @@
 import s from "./Contact.module.scss";
 import React, { useState } from "react";
+import { Translations, PageInfo } from "typings";
 
 type Props = {
-  pageInfo: any;
-  translations: {
-    contact: string;
-    name: string;
-    email: string;
-    phone: string;
-    message: string;
-    submit: string;
-  };
+  pageInfo: PageInfo;
+  translations: Translations;
 };
 
 export default function Contact({ pageInfo, translations }: Props) {

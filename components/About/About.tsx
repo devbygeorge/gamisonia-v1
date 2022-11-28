@@ -1,12 +1,11 @@
 import Image from "next/legacy/image";
+import { Translations, PageInfo } from "typings";
 import { urlFor } from "sanity";
 import s from "./About.module.scss";
 
 type Props = {
-  pageInfo: any;
-  translations: {
-    about: string;
-  };
+  pageInfo: PageInfo;
+  translations: Translations;
 };
 
 export default function About({ pageInfo, translations }: Props) {

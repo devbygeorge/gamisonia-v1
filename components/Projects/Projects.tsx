@@ -1,8 +1,13 @@
 import Image from "next/legacy/image";
+import { Project } from "typings";
 import { urlFor } from "sanity";
 import s from "./Projects.module.scss";
 
-export default function Projects({ projects }: any) {
+type Props = {
+  projects: Project[];
+};
+
+export default function Projects({ projects }: Props) {
   return (
     <div id="projects" className={s.projects}>
       <div className="container">

@@ -3,25 +3,22 @@ import Image from "next/legacy/image";
 import { useState } from "react";
 
 import s from "./Header.module.scss";
-import Router from "next/router";
+import { useRouter } from "next/router";
+import { Translations } from "typings";
 
 type Props = {
-  translations: {
-    home: string;
-    projects: string;
-    about: string;
-    contact: string;
-  };
+  translations: Translations;
 };
 
 export default function Header({ translations }: Props) {
   const [menuActive, setMenuActive] = useState(false);
+  const router = useRouter();
 
   const handleMenuClose = () => setMenuActive(false);
   const handleMenuToggle = () => setMenuActive((prevState) => !prevState);
 
   const handleLocaleChange = (locale: string) => {
-    Router.push("/", "/", { locale: locale });
+    router.push("/", "/", { locale: locale });
     handleMenuClose();
   };
 
