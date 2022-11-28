@@ -6,7 +6,7 @@ export default {
     {
       name: "heroTitle",
       title: "HeroTitle",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "heroImage",
@@ -19,12 +19,12 @@ export default {
     {
       name: "aboutTitle",
       title: "AboutTitle",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "aboutInfo",
       title: "AboutInfo",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "aboutImage",
@@ -37,7 +37,7 @@ export default {
     {
       name: "contactText",
       title: "ContactText",
-      type: "string",
+      type: "localeString",
     },
   ],
 };

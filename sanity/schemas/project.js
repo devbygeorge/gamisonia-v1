@@ -6,17 +6,17 @@ export default {
     {
       name: "category",
       title: "Category",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "title",
       title: "Title",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "localeString",
     },
     {
       name: "image",
