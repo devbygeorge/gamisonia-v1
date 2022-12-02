@@ -5,21 +5,33 @@
   background-color: var(--color-dark);
 
   @include m.mobile {
-    padding: 1.65rem 0;
-
+    padding: 0.75rem 0;
     .toggle {
       position: absolute;
-      right: 1rem;
-      top: 1.15rem;
+      right: 1.5rem;
+      top: 1.5rem;
       z-index: 2;
       cursor: pointer;
 
-      width: 1.5rem;
-      height: .9rem;
+      width: 1.75rem;
+      height: 1.1rem;
       background-image: url("/images/menu-icon.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+    }
+  }
+
+  .toggleActive {
+    position: fixed;
+    top: 1.25rem;
+    height: 1.5rem;
+    background-image: url("/images/close-icon.svg");
+  }
+
+  .logo {
+    @include m.desktop {
+      display: none;
     }
   }
 
@@ -36,7 +48,7 @@
 
       width: 50%;
       background-color: var(--color-dark);
-      padding: 3rem 1.25rem;
+      padding: 4rem 1.25rem;
 
       position: fixed;
       top: 0;
@@ -78,13 +90,6 @@
   .menuActive {
     visibility: visible;
     opacity: 1;
-  }
-
-  .toggleActive {
-    position: fixed;
-    top: 1rem;
-    height: 1.25rem;
-    background-image: url("/images/close-icon.svg");
   }
 
   .flags {

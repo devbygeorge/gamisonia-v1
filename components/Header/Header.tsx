@@ -25,6 +25,16 @@ export default function Header({ translations }: Props) {
   return (
     <div id="header" className={s.header}>
       <div className="container">
+        <div className={s.logo}>
+          <Link href="/">
+            <Image
+              src="/images/logo-white.png"
+              alt="Logo"
+              width={40}
+              height={40}
+            />
+          </Link>
+        </div>
         <div
           className={`${s.toggle} ${menuActive ? s.toggleActive : ""}`}
           onClick={handleMenuToggle}
