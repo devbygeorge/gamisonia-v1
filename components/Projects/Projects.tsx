@@ -5,16 +5,21 @@ import s from "./Projects.module.scss";
 
 type Props = {
   projects: Project[];
+  locale: string | undefined;
 };
 
-export default function Projects({ projects }: Props) {
+export default function Projects({ projects, locale }: Props) {
   return (
     <div id="projects" className={s.projects}>
       <div className="container">
         <ul className={s.list}>
           {projects?.map((project: any) => (
             <li key={project._id} className={s.listItem}>
-              <h3 className={s.type}>{project?.category}</h3>
+              <h3
+                className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}
+              >
+                {project?.category}
+              </h3>
               <div className={s.imgWrapper}>
                 <Image
                   src={urlFor(project?.image).url()}
@@ -24,8 +29,14 @@ export default function Projects({ projects }: Props) {
                   quality={100}
                 />
               </div>
-              <h4 className={s.title}>{project?.title}</h4>
-              <p className={s.desc}>{project?.description}</p>
+              <h4
+                className={`${s.title} ${locale === "ge" ? "fontBolnisi" : ""}`}
+              >
+                {project?.title}
+              </h4>
+              <p className={`${s.desc} ${locale === "ge" ? "fontArial" : ""}`}>
+                {project?.description}
+              </p>
             </li>
           ))}
         </ul>

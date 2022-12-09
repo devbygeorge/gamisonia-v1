@@ -15,10 +15,10 @@ export const en = {
 };
 
 export const ge = {
-  home: "მთავარი",
-  projects: "პროექტები",
-  about: "ჩემს შესახებ",
-  contact: "კონტაქტი",
+  home: "mTavari",
+  projects: "proeqtebi",
+  about: "Cems Sesaxeb",
+  contact: "kontaqti",
 
   name: "სახელი და გვარი*",
   email: "იმეილი*",

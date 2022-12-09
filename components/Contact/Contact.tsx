@@ -5,9 +5,10 @@ import { Translations, PageInfo } from "typings";
 type Props = {
   pageInfo: PageInfo;
   translations: Translations;
+  locale: string | undefined;
 };
 
-export default function Contact({ pageInfo, translations }: Props) {
+export default function Contact({ pageInfo, translations, locale }: Props) {
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -61,8 +62,13 @@ export default function Contact({ pageInfo, translations }: Props) {
   };
 
   return (
-    <div id="contact" className={s.contact}>
-      <h2 className="section-heading">{translations.contact}</h2>
+    <div
+      id="contact"
+      className={`${s.contact} ${locale === "ge" ? "fontArial" : ""}`}
+    >
+      <h2 className={`section-heading ${locale === "ge" ? "fontBolnisi" : ""}`}>
+        {translations.contact}
+      </h2>
       <div className="container">
         <div className={s.content}>
           <p className={s.info}>{pageInfo?.contactText}</p>

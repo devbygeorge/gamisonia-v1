@@ -28,6 +28,10 @@
     max-width: 400px;
     margin-inline: auto;
     position: relative;
+
+    > * {
+      font-family: inherit;
+    }
   }
 
   .field {

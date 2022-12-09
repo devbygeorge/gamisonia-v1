@@ -13,6 +13,7 @@ type Props = {
 export default function Header({ translations }: Props) {
   const [menuActive, setMenuActive] = useState(false);
   const router = useRouter();
+  const { locale } = router;
 
   const handleMenuClose = () => setMenuActive(false);
   const handleMenuToggle = () => setMenuActive((prevState) => !prevState);
@@ -23,7 +24,10 @@ export default function Header({ translations }: Props) {
   };
 
   return (
-    <div id="header" className={s.header}>
+    <div
+      id="header"
+      className={`${s.header} ${locale === "ge" ? "fontBolnisi" : ""}`}
+    >
       <div className={`container ${s.content}`}>
         <div className={s.logo}>
           <Link href="/">

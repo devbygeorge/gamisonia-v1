@@ -19,6 +19,16 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: ArialGeo;
+  src: url("/fonts/arial_geo.ttf");
+}
+
+@font-face {
+  font-family: Bolnisi;
+  src: url("/fonts/bolnisi_mtavruli.ttf");
+}
+
 // Root Variables
 :root {
   --color-dark: rgb(21, 21, 21);
@@ -96,4 +106,12 @@ img {
   @include mix.desktop {
     scroll-snap-align: end;
   }
+}
+
+.fontBolnisi {
+  font-family: Bolnisi !important;
+}
+
+.fontArial {
+  font-family: ArialGeo !important;
 }

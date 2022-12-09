@@ -42,13 +42,21 @@ export default function Home({ pageInfo, projects, socials }: Props) {
       </div>
 
       <div className="desktop-snap-center">
-        <Projects projects={projects} />
+        <Projects projects={projects} locale={locale} />
       </div>
       <div className="desktop-snap-center">
-        <About pageInfo={pageInfo} translations={translations} />
+        <About
+          pageInfo={pageInfo}
+          translations={translations}
+          locale={locale}
+        />
       </div>
       <div className="desktop-snap-center">
-        <Contact pageInfo={pageInfo} translations={translations} />
+        <Contact
+          pageInfo={pageInfo}
+          translations={translations}
+          locale={locale}
+        />
       </div>
 
       <div className="desktop-snap-end">
