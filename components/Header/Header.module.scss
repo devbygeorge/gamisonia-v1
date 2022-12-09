@@ -1,41 +1,66 @@
 @use "@/styles/mixins.scss" as m;
 
 .header {
-  padding: 1.1rem 0;
+  padding-block: 0.5rem;
   background-color: var(--color-dark);
 
   @include m.mobile {
-    padding: 0.75rem 0;
-    .toggle {
-      position: absolute;
-      right: 1.5rem;
-      top: 1.5rem;
-      z-index: 2;
-      cursor: pointer;
-
-      width: 1.75rem;
-      height: 1.1rem;
-      background-image: url("/images/menu-icon.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-    }
+    padding-block: 0.4rem;
   }
 
-  .toggleActive {
-    position: fixed;
-    top: 1.25rem;
-    height: 1.5rem;
-    background-image: url("/images/close-icon.svg");
+  .content {
+    display: flex;
+    gap: 1rem;
   }
 
   .logo {
+    display: grid;
+    place-items: center;
+
+    width: 45px;
+    height: 45px;
+
+    background-color: var(--color-light);
+    border-radius: 50%;
+    transition: 100ms;
+
+    img {
+      filter: invert(1);
+    }
+
+    &:hover {
+      background-color: white;
+    }
+  }
+
+  .toggle {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.3rem;
+    z-index: 2;
+    cursor: pointer;
+
+    width: 1.75rem;
+    height: 1.1rem;
+    background-image: url("/images/menu-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
     @include m.desktop {
       display: none;
     }
   }
 
+  .toggleActive {
+    position: fixed;
+    top: 1.15rem;
+    height: 1.5rem;
+    background-image: url("/images/close-icon.svg");
+  }
+
   .nav {
+    flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,10 +106,6 @@
     &:hover {
       text-decoration: underline;
     }
-
-    @include m.mobile {
-      font-size: 0.9rem;
-    }
   }
 
   .menuActive {
@@ -99,7 +120,7 @@
   }
 
   .flag {
-    filter: grayscale(0.4);
+    filter: grayscale(0.5);
     cursor: pointer;
   }
 }

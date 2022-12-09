@@ -24,7 +24,7 @@ export default function Header({ translations }: Props) {
 
   return (
     <div id="header" className={s.header}>
-      <div className="container">
+      <div className={`container ${s.content}`}>
         <div className={s.logo}>
           <Link href="/">
             <Image
