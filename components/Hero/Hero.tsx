@@ -21,9 +21,9 @@ export default function Hero({ pageInfo }: Props) {
         />
       </div>
 
-      <div className={`container ${s.textWrapper}`}>
-        <h1 className={s.heading}>{pageInfo?.heroTitle}</h1>
-      </div>
+      {/* <div className={`container ${s.textWrapper}`}> */}
+      <h1 className={s.heading}>gamisonia</h1>
+      {/* </div> */}
     </div>
   );
 }
