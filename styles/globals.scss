@@ -115,3 +115,19 @@ img {
 .fontArial {
   font-family: ArialGeo !important;
 }
+
+.swiper-pagination-progressbar-fill {
+  background-color: var(--color-light) !important;
+}
+
+.swiper-pagination-progressbar {
+  height: 2px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-light) !important;
+  transform: translateY(-3rem);
+
+  
+}

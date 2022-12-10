@@ -1,45 +1,99 @@
-import Image from "next/legacy/image";
-import { Project } from "typings";
-import { urlFor } from "sanity";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import ProjectItem from "@/components/ProjectItem";
+import { Project, Translations } from "typings";
 import s from "./Projects.module.scss";
 
 type Props = {
   projects: Project[];
   locale: string | undefined;
+  translations: Translations;
 };
 
-export default function Projects({ projects, locale }: Props) {
+export default function Projects({ projects, locale, translations }: Props) {
   return (
     <div id="projects" className={s.projects}>
       <div className="container">
-        <ul className={s.list}>
-          {projects?.map((project: any) => (
-            <li key={project._id} className={s.listItem}>
-              <h3
-                className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}
-              >
-                {project?.category}
-              </h3>
-              <div className={s.imgWrapper}>
-                <Image
-                  src={urlFor(project?.image).url()}
-                  alt={project?.title}
-                  layout="fill"
-                  objectFit="cover"
-                  quality={100}
-                />
-              </div>
-              <h4
-                className={`${s.title} ${locale === "ge" ? "fontBolnisi" : ""}`}
-              >
-                {project?.title}
-              </h4>
-              <p className={`${s.desc} ${locale === "ge" ? "fontArial" : ""}`}>
-                {project?.description}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <div className={s.grid}>
+          {/* Interior List */}
+          <div className={s.grid_item}>
+            <h3 className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+              {translations.interior}
+            </h3>
+            <Swiper
+              slidesPerView={1}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              pagination={{
+                type: "progressbar",
+              }}
+            >
+              {projects?.map((project: Project) => (
+                <SwiperSlide key={project._id}>
+                  <ProjectItem
+                    project={project}
+                    locale={locale}
+                    translations={translations}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Architecture List */}
+          <div className={s.grid_item}>
+            <h3 className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+              {translations.architecture}
+            </h3>
+            <Swiper
+              slidesPerView={1}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              pagination={{
+                type: "progressbar",
+              }}
+            >
+              {projects?.map((project: Project) => (
+                <SwiperSlide key={project._id}>
+                  <ProjectItem
+                    project={project}
+                    locale={locale}
+                    translations={translations}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Object List */}
+          <div className={s.grid_item}>
+            <h3 className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+              {translations.object}
+            </h3>
+            <Swiper
+              slidesPerView={1}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              pagination={{
+                type: "progressbar",
+              }}
+            >
+              {projects?.map((project: Project) => (
+                <SwiperSlide key={project._id}>
+                  <ProjectItem
+                    project={project}
+                    locale={locale}
+                    translations={translations}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
       </div>
     </div>
   );

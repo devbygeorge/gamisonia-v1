@@ -12,6 +12,12 @@ export const en = {
 
   success_message: "Message sent successfully..",
   failure_message: "Failed to send message..",
+
+  interior: "interior",
+  architecture: "architecture",
+  object: "object",
+
+  more_details: "More Details",
 };
 
 export const ge = {
@@ -28,4 +34,10 @@ export const ge = {
 
   success_message: "შეტყობინება წარმატებით გაიგზავნა..",
   failure_message: "შეტყობინების გაგზავნა ვერ მოხერხდა..",
+
+  interior: "interieri",
+  architecture: "arqiteqtura",
+  object: "obieqti",
+
+  more_details: "სრულად ნახვა",
 };
