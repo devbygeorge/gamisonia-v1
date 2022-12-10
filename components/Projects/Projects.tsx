@@ -15,6 +15,16 @@ type Props = {
 };
 
 export default function Projects({ projects, locale, translations }: Props) {
+  const interiorProjects = projects?.filter(
+    (project) => project.category === "interior"
+  );
+  const architectureProjects = projects?.filter(
+    (project) => project.category === "architecture"
+  );
+  const objectProjects = projects?.filter(
+    (project) => project.category === "object"
+  );
+
   return (
     <div id="projects" className={s.projects}>
       <div className="container">
@@ -32,7 +42,7 @@ export default function Projects({ projects, locale, translations }: Props) {
                 type: "progressbar",
               }}
             >
-              {projects?.map((project: Project) => (
+              {interiorProjects?.map((project: Project) => (
                 <SwiperSlide key={project._id}>
                   <ProjectItem
                     project={project}
@@ -57,7 +67,7 @@ export default function Projects({ projects, locale, translations }: Props) {
                 type: "progressbar",
               }}
             >
-              {projects?.map((project: Project) => (
+              {architectureProjects?.map((project: Project) => (
                 <SwiperSlide key={project._id}>
                   <ProjectItem
                     project={project}
@@ -82,7 +92,7 @@ export default function Projects({ projects, locale, translations }: Props) {
                 type: "progressbar",
               }}
             >
-              {projects?.map((project: Project) => (
+              {objectProjects?.map((project: Project) => (
                 <SwiperSlide key={project._id}>
                   <ProjectItem
                     project={project}

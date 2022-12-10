@@ -73,7 +73,6 @@ export default function Home({ pageInfo, projects, socials }: Props) {
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   const pageInfoQuery = groq`
     *[_type == "pageInfo"][0] {
-      "heroTitle": heroTitle.${locale},
       "heroImage": heroImage,
       "aboutTitle": aboutTitle.${locale},
       "aboutInfo": aboutInfo.${locale},
@@ -83,9 +82,10 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
   `;
 
   const projectsQuery = groq`
-    *[_type == "project"] {
+    *[_type == "project"] | order(lower(name) asc) {
       "_id": _id,
-      "category": category.${locale},
+      "name": name,
+      "category": category,
       "title": title.${locale},
       "description": description.${locale},
       "image": image

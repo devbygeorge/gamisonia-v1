@@ -14,7 +14,7 @@ export default function Projects({ project, locale, translations }: Props) {
     <div className={s.project_item}>
       <div className={s.image_wrapper}>
         <Image
-          src={urlFor(project?.image).url()}
+          src={urlFor(project?.image[0]).url()}
           alt={project?.title}
           layout="fill"
           objectFit="cover"
