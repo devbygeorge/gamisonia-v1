@@ -18,6 +18,7 @@ export default function Hero({ pageInfo }: Props) {
           objectFit="cover"
           objectPosition="center calc(50% - 6rem)"
           quality={100}
+          priority
         />
       </div>
 
