@@ -4,11 +4,6 @@ export default {
   type: "document",
   fields: [
     {
-      name: "heroTitle",
-      title: "HeroTitle",
-      type: "localeString",
-    },
-    {
       name: "heroImage",
       title: "HeroImage",
       type: "image",
@@ -24,7 +19,7 @@ export default {
     {
       name: "aboutInfo",
       title: "AboutInfo",
-      type: "localeString",
+      type: "localeText",
     },
     {
       name: "aboutImage",
@@ -37,7 +32,7 @@ export default {
     {
       name: "contactText",
       title: "ContactText",
-      type: "localeString",
+      type: "localeText",
     },
   ],
 };

@@ -4,9 +4,21 @@ export default {
   type: "document",
   fields: [
     {
+      name: "name",
+      title: "Name",
+      type: "string",
+    },
+    {
       name: "category",
       title: "Category",
-      type: "localeString",
+      type: "string",
+      options: {
+        list: [
+          { title: "Architecture", value: "architecture" },
+          { title: "Interior", value: "interior" },
+          { title: "Object", value: "object" },
+        ],
+      },
     },
     {
       name: "title",
@@ -16,15 +28,20 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "localeString",
+      type: "localeText",
     },
     {
       name: "image",
       title: "Image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
     },
   ],
 };
