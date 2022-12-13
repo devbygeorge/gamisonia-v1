@@ -1,0 +1,61 @@
+@use "@/styles/mixins.scss" as m;
+
+.project_details {
+  width: 1000px;
+  height: 760px;
+  background-color: #333;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  display: none;
+  grid-template-columns: 2.35fr 1fr;
+  grid-template-areas: "mainImage info" "thumbs info";
+
+  &.active {
+    display: grid;
+  }
+
+  .close_icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .main_image {
+    grid-area: mainImage;
+  }
+
+  .image_thumbs {
+    grid-area: thumbs;
+    display: flex;
+    gap: 0.5rem;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .project_info {
+    grid-area: info;
+    padding: 1.5rem;
+  }
+
+  .info_item {
+    span {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    margin-bottom: 0.5rem;
+  }
+}

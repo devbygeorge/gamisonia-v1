@@ -54,4 +54,7 @@ export interface Translations {
   architecture: string;
   object: string;
   more_details: string;
+  product_name: string;
+  product_category: string;
+  product_description: string;
 }

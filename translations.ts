@@ -18,6 +18,10 @@ export const en = {
   object: "object",
 
   more_details: "More Details",
+
+  product_name: "name",
+  product_category: "category",
+  product_description: "description",
 };
 
 export const ge = {
@@ -40,4 +44,8 @@ export const ge = {
   object: "obieqti",
 
   more_details: "სრულად ნახვა",
+
+  product_name: "სახელი",
+  product_category: "კატეგორია",
+  product_description: "აღწერა",
 };

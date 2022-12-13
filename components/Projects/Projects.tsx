@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import ProjectItem from "@/components/ProjectItem";
 import { Project, Translations } from "typings";
 import s from "./Projects.module.scss";
+import ProjectDetails from "../ProjectDetails";
+import { useState } from "react";
 
 type Props = {
   projects: Project[];
@@ -15,6 +17,8 @@ type Props = {
 };
 
 export default function Projects({ projects, locale, translations }: Props) {
+  const [activeProject, setActiveProject] = useState("");
+
   const interiorProjects = projects?.filter(
     (project) => project.category === "interior"
   );
@@ -48,6 +52,7 @@ export default function Projects({ projects, locale, translations }: Props) {
                     project={project}
                     locale={locale}
                     translations={translations}
+                    setActiveProject={setActiveProject}
                   />
                 </SwiperSlide>
               ))}
@@ -73,6 +78,7 @@ export default function Projects({ projects, locale, translations }: Props) {
                     project={project}
                     locale={locale}
                     translations={translations}
+                    setActiveProject={setActiveProject}
                   />
                 </SwiperSlide>
               ))}
@@ -98,12 +104,24 @@ export default function Projects({ projects, locale, translations }: Props) {
                     project={project}
                     locale={locale}
                     translations={translations}
+                    setActiveProject={setActiveProject}
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
+        {projects?.map((project) => (
+          <div key={project._id} className="full-project">
+            <ProjectDetails
+              project={project}
+              locale={locale}
+              translations={translations}
+              activeProject={activeProject}
+              setActiveProject={setActiveProject}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

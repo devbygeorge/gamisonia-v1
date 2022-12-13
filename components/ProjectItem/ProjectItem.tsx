@@ -7,9 +7,15 @@ type Props = {
   project: Project;
   locale: string | undefined;
   translations: Translations;
+  setActiveProject: Function;
 };
 
-export default function Projects({ project, locale, translations }: Props) {
+export default function ProjectItem({
+  project,
+  locale,
+  translations,
+  setActiveProject,
+}: Props) {
   return (
     <div className={s.project_item}>
       <div className={s.image_wrapper}>
@@ -27,7 +33,10 @@ export default function Projects({ project, locale, translations }: Props) {
       <p className={`${s.description} ${locale === "ge" ? "fontArial" : ""}`}>
         {project?.description}
       </p>
-      <button className={`${s.button} ${locale === "ge" ? "fontArial" : ""}`}>
+      <button
+        onClick={() => setActiveProject(project._id)}
+        className={`${s.button} ${locale === "ge" ? "fontArial" : ""}`}
+      >
         {translations.more_details}
       </button>
     </div>
