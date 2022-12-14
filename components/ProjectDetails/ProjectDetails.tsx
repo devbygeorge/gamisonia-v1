@@ -47,14 +47,15 @@ export default function ProjectDetails({
 
       <div className={s.main_image}>
         <button className={s.chevron_button} onClick={handlePrevClick}>
-          <Image
-            src="/images/chevron.png"
-            alt="Left Arrow"
-            width={52}
-            height={52}
-            objectFit="cover"
-            quality={100}
-          />
+          <div className={s.chevron_cont}>
+            <Image
+              src="/images/chevron.png"
+              alt="Left Arrow"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </div>
         </button>
         <Image
           src={urlFor(image[activeThumbIndex]).url()}
@@ -65,14 +66,15 @@ export default function ProjectDetails({
           quality={100}
         />
         <button className={s.chevron_button} onClick={handleNextClick}>
-          <Image
-            src="/images/chevron.png"
-            alt="Right Arrow"
-            width={52}
-            height={52}
-            objectFit="cover"
-            quality={100}
-          />
+          <div className={s.chevron_cont}>
+            <Image
+              src="/images/chevron.png"
+              alt="Right Arrow"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+            />
+          </div>
         </button>
       </div>
 

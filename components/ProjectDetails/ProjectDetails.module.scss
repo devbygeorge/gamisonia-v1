@@ -9,7 +9,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 3;
 
   display: grid;
   grid-template-columns: auto 1fr;
@@ -22,7 +22,10 @@
 
   @include m.mobile {
     display: block;
+    position: fixed;
     width: 90%;
+    max-height: 1000px;
+    overflow-y: auto;
   }
 
   &.active {
@@ -75,7 +78,14 @@
 
   .info_item {
     font-size: 1.25rem;
-    margin-bottom: 0.75rem;
+
+    &:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+
+    @include m.mobile {
+      font-size: 1rem;
+    }
 
     span {
       display: block;
@@ -92,8 +102,11 @@
 
     .desc {
       font-family: Ubuntu;
-      font-size: 1.2rem;
       font-weight: 600;
+
+      @include m.mobile {
+        font-size: 1.1rem;
+      }
     }
   }
 
@@ -125,6 +138,16 @@
 
     &:hover {
       opacity: 1;
+    }
+  }
+  .chevron_cont {
+    position: relative;
+    width: 52px;
+    height: 52px;
+
+    @include m.mobile {
+      width: 32px;
+      height: 32px;
     }
   }
 }
