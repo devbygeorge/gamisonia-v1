@@ -22,9 +22,9 @@ export default function Hero({ pageInfo }: Props) {
         />
       </div>
 
-      {/* <div className={`container ${s.textWrapper}`}> */}
-      <h1 className={s.heading}>gamisonia</h1>
-      {/* </div> */}
+      <div className={s.heading_wrapper}>
+        <h1 className={s.heading}></h1>
+      </div>
     </div>
   );
 }
