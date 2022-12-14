@@ -43,19 +43,19 @@
     }
   }
 
-  .heading {
-    position: relative;
-    width: 442px;
-    height: 57px;
+  .heading_mobile {
+    display: flex;
 
-    background-image: url("/images/heading.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include m.desktop {
+      display: none;
+    }
+  }
+
+  .heading_desktop {
+    display: flex;
 
     @include m.mobile {
-      background-image: url("/images/heading-m.svg");
-      width: 267px;
-      height: 35px;
+      display: none;
     }
   }
 }

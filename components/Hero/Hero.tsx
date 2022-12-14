@@ -23,7 +23,30 @@ export default function Hero({ pageInfo }: Props) {
       </div>
 
       <div className={s.heading_wrapper}>
-        <h1 className={s.heading}></h1>
+        <h1 className={s.heading}>
+          <div className={s.heading_desktop}>
+            <Image
+              src="/images/heading.svg"
+              alt="gamisonia"
+              width={442}
+              height={57}
+              objectFit="cover"
+              quality={100}
+              priority
+            />
+          </div>
+          <div className={s.heading_mobile}>
+            <Image
+              src="/images/heading-m.svg"
+              alt="gamisonia"
+              width={267}
+              height={35}
+              objectFit="cover"
+              quality={100}
+              priority
+            />
+          </div>
+        </h1>
       </div>
     </div>
   );
