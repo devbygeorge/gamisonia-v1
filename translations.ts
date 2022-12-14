@@ -19,9 +19,9 @@ export const en = {
 
   more_details: "More Details",
 
-  product_name: "name",
-  product_category: "category",
-  product_description: "description",
+  name_label: "name",
+  category_label: "category",
+  description_label: "description",
 };
 
 export const ge = {
@@ -45,7 +45,7 @@ export const ge = {
 
   more_details: "სრულად ნახვა",
 
-  product_name: "სახელი",
-  product_category: "კატეგორია",
-  product_description: "აღწერა",
+  name_label: "სახელი",
+  category_label: "კატეგორია",
+  description_label: "აღწერა",
 };

@@ -1,8 +1,8 @@
 @use "@/styles/mixins.scss" as m;
 
 .project_details {
-  width: 1000px;
-  height: 760px;
+  width: 67rem;
+  padding: 0.5rem;
   background-color: #333;
 
   position: absolute;
@@ -11,12 +11,23 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 
-  display: none;
-  grid-template-columns: 2.35fr 1fr;
+  display: grid;
+  grid-template-columns: auto 1fr;
   grid-template-areas: "mainImage info" "thumbs info";
+  gap: 0.35rem;
+
+  transition: 300ms;
+  visibility: hidden;
+  opacity: 0;
+
+  @include m.mobile {
+    display: block;
+    width: 90%;
+  }
 
   &.active {
-    display: grid;
+    visibility: visible;
+    opacity: 1;
   }
 
   .close_icon {
@@ -25,6 +36,7 @@
     right: 1rem;
     font-size: 2rem;
     cursor: pointer;
+    z-index: 1;
 
     &:hover {
       opacity: 0.9;
@@ -33,12 +45,18 @@
 
   .main_image {
     grid-area: mainImage;
+    position: relative;
+
+    @include m.mobile {
+      margin-bottom: 0.4rem;
+    }
   }
 
   .image_thumbs {
     grid-area: thumbs;
     display: flex;
     gap: 0.5rem;
+    max-width: 43.75rem;
 
     img {
       cursor: pointer;
@@ -47,15 +65,66 @@
 
   .project_info {
     grid-area: info;
-    padding: 1.5rem;
+    padding: 1rem 0.5rem 0;
+
+    @include m.mobile {
+      margin-bottom: 0.4rem;
+      padding: 1rem 0 0;
+    }
   }
 
   .info_item {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+
     span {
       display: block;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.5rem;
+      font-family: Ubuntu;
+      font-weight: 500;
+      font-size: 1rem;
+      text-transform: capitalize;
     }
 
-    margin-bottom: 0.5rem;
+    .desc_label {
+      margin-bottom: 0.25rem;
+    }
+
+    .desc {
+      font-family: Ubuntu;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+
+  .chevron_button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+
+    display: grid;
+    place-items: center;
+
+    img {
+      filter: invert(1);
+    }
+
+    &:first-child {
+      transform: translateY(-50%) rotate(180deg);
+      left: 0.25rem;
+    }
+
+    &:last-child {
+      right: 0.25rem;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
