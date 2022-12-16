@@ -59,6 +59,7 @@ export default function ProjectDetails({
         </button>
         {image?.map((imageItem, index) => (
           <div
+            key={index}
             className={`${s.imageItem} ${
               activeThumbIndex === index ? s.active : ""
             }`}
@@ -88,7 +89,7 @@ export default function ProjectDetails({
 
       <div className={s.image_thumbs}>
         {project?.image.map((image, index) => (
-          <div className={s.thumb_item}>
+          <div key={index} className={s.thumb_item}>
             <Image
               key={index}
               src={urlFor(image).url()}
