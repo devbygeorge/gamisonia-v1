@@ -55,14 +55,37 @@
     }
   }
 
+  .imageItem {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
   .image_thumbs {
     grid-area: thumbs;
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: flex-start;
     gap: 0.5rem;
     max-width: 43.75rem;
+    height: 100px;
+    overflow-x: auto;
 
-    img {
-      cursor: pointer;
+    @include m.desktop {
+      height: 150px;
+    }
+  }
+
+  .thumb_item {
+    width: 100px;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+
+    @include m.desktop {
+      width: 150px;
     }
   }
 

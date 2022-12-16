@@ -57,14 +57,22 @@ export default function ProjectDetails({
             />
           </div>
         </button>
-        <Image
-          src={urlFor(image[activeThumbIndex]).url()}
-          alt={title}
-          width={700}
-          height={600}
-          objectFit="cover"
-          quality={100}
-        />
+        {image?.map((imageItem, index) => (
+          <div
+            className={`${s.imageItem} ${
+              activeThumbIndex === index ? s.active : ""
+            }`}
+          >
+            <Image
+              src={urlFor(imageItem).url()}
+              alt={title}
+              width={700}
+              height={600}
+              objectFit="cover"
+              quality={100}
+            />
+          </div>
+        ))}
         <button className={s.chevron_button} onClick={handleNextClick}>
           <div className={s.chevron_cont}>
             <Image
@@ -80,16 +88,17 @@ export default function ProjectDetails({
 
       <div className={s.image_thumbs}>
         {project?.image.map((image, index) => (
-          <Image
-            key={index}
-            src={urlFor(image).url()}
-            alt={title}
-            width={150}
-            height={150}
-            objectFit="cover"
-            quality={100}
-            onClick={() => setActiveThumbIndex(index)}
-          />
+          <div className={s.thumb_item}>
+            <Image
+              key={index}
+              src={urlFor(image).url()}
+              alt={title}
+              layout="fill"
+              objectFit="cover"
+              quality={100}
+              onClick={() => setActiveThumbIndex(index)}
+            />
+          </div>
         ))}
       </div>
 
