@@ -28,17 +28,17 @@ export default function Header({ translations }: Props) {
       id="header"
       className={`${s.header} ${locale === "ge" ? "fontBolnisi" : ""}`}
     >
+      <div className={s.logo}>
+        <Link href="/">
+          <Image
+            src="/images/logo-white.png"
+            alt="Logo"
+            width={40}
+            height={40}
+          />
+        </Link>
+      </div>
       <div className={`container ${s.content}`}>
-        <div className={s.logo}>
-          <Link href="/">
-            <Image
-              src="/images/logo-white.png"
-              alt="Logo"
-              width={40}
-              height={40}
-            />
-          </Link>
-        </div>
         <div
           className={`${s.toggle} ${menuActive ? s.toggleActive : ""}`}
           onClick={handleMenuToggle}

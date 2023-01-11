@@ -1,15 +1,16 @@
 @use "@/styles/mixins.scss" as m;
 
 .header {
-  padding-block: 0.5rem;
+  padding-block: 1rem;
   background-color: var(--color-dark);
+  position: relative;
 
   font-family: Aquire;
   font-weight: 700;
   font-size: 1.15rem;
 
   @include m.mobile {
-    padding-block: 0.4rem;
+    padding-block: 1.8rem;
   }
 
   .content {
@@ -18,22 +19,32 @@
   }
 
   .logo {
-    display: grid;
-    place-items: center;
+    position: absolute;
+    top: 0;
 
-    width: 45px;
-    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: max(calc(50% - 37.25rem), 5rem);
+    height: 100%;
+    padding-right: 0.25rem;
+
+    @include m.mobile {
+      padding-right: 1.5rem;
+    }
 
     background-color: var(--color-light);
-    border-radius: 50%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     transition: 100ms;
 
     img {
       filter: invert(1);
-    }
 
-    &:hover {
-      opacity: 0.9;
+      &:hover {
+        filter: invert(0.8);
+      }
     }
   }
 
@@ -68,6 +79,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 4rem;
 
     @include m.mobile {
       flex-direction: column;
