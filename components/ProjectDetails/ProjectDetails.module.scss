@@ -34,6 +34,8 @@
   }
 
   .close_icon {
+    font-family: TypoOvalBold;
+    text-transform: uppercase;
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -101,35 +103,20 @@
 
   .info_item {
     font-size: 1.25rem;
+    text-transform: capitalize;
 
     &:not(:last-child) {
       margin-bottom: 0.75rem;
     }
 
     @include m.mobile {
-      font-size: 1rem;
+      // font-size: 1rem;
     }
 
     span {
       display: block;
       margin-bottom: 0.5rem;
-      font-family: Ubuntu;
-      font-weight: 500;
       font-size: 1rem;
-      text-transform: capitalize;
-    }
-
-    .desc_label {
-      margin-bottom: 0.25rem;
-    }
-
-    .desc {
-      font-family: Ubuntu;
-      font-weight: 600;
-
-      @include m.mobile {
-        font-size: 1.1rem;
-      }
     }
   }
 

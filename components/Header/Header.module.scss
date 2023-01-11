@@ -5,9 +5,9 @@
   background-color: var(--color-dark);
   position: relative;
 
-  font-family: Aquire;
-  font-weight: 700;
+  font-family: TypoOvalBold;
   font-size: 1.15rem;
+  text-transform: uppercase;
 
   @include m.mobile {
     padding-block: 1.8rem;

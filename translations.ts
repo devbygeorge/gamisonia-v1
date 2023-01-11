@@ -25,10 +25,10 @@ export const en = {
 };
 
 export const ge = {
-  home: "mTavari",
-  projects: "proeqtebi",
-  about: "Cems Sesaxeb",
-  contact: "kontaqti",
+  home: "მთავარი",
+  projects: "პროექტები",
+  about: "ჩემს შესახებ",
+  contact: "კონტაქტი",
 
   name: "სახელი და გვარი*",
   email: "იმეილი*",
@@ -39,9 +39,9 @@ export const ge = {
   success_message: "შეტყობინება წარმატებით გაიგზავნა..",
   failure_message: "შეტყობინების გაგზავნა ვერ მოხერხდა..",
 
-  interior: "interieri",
-  architecture: "arqiteqtura",
-  object: "obieqti",
+  interior: "ინტერიერი",
+  architecture: "არქიტექტურა",
+  object: "ობიექტი",
 
   more_details: "სრულად ნახვა",
 

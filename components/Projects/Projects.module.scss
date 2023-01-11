@@ -3,7 +3,6 @@
 .projects {
   background-color: var(--color-dark);
   color: var(--color-light);
-  font-family: Aquire;
   position: relative;
 
   .grid {
@@ -53,5 +52,7 @@
   .type {
     font-size: 1.35rem;
     margin-bottom: 0.5rem;
+    font-family: TypoOvalBold;
+    text-transform: uppercase;
   }
 }

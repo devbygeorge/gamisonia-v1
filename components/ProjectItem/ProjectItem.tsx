@@ -27,15 +27,13 @@ export default function ProjectItem({
           quality={100}
         />
       </div>
-      <h4 className={`${s.title} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+      <h4 className={`${s.title} ${locale === "ge" ? "fontArchyBold" : ""}`}>
         {project?.title}
       </h4>
-      <p className={`${s.description} ${locale === "ge" ? "fontArial" : ""}`}>
-        {project?.description}
-      </p>
+      <p className={s.description}>{project?.description}</p>
       <button
         onClick={() => setActiveProject(project._id)}
-        className={`${s.button} ${locale === "ge" ? "fontArial" : ""}`}
+        className={`${s.button} ${locale === "ge" ? "fontArchyBold" : ""}`}
       >
         {translations.more_details}
       </button>

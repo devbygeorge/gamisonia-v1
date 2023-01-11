@@ -12,17 +12,19 @@ type Props = {
 export default function About({ pageInfo, translations, locale }: Props) {
   return (
     <div id="about" className={s.about}>
-      <h2 className={`section-heading ${locale === "ge" ? "fontBolnisi" : ""}`}>
+      <h2
+        className={`section-heading ${locale === "ge" ? "fontArchyBold" : ""}`}
+      >
         {translations.about}
       </h2>
 
       <div className={s.content}>
         <div className="container">
           <div className={s.text}>
-            <span className={locale === "ge" ? "fontBolnisi" : ""}>
+            <span className={locale === "ge" ? "fontArchyBold" : ""}>
               {pageInfo?.aboutTitle}
             </span>
-            <p className={locale === "ge" ? "fontArial" : ""}>
+            <p>
               {pageInfo?.aboutInfo}
             </p>
           </div>

@@ -32,8 +32,8 @@
     justify-content: center;
 
     span {
-      font-family: Aquire;
-      font-weight: 700;
+      font-family: TypoOvalBold;
+      text-transform: uppercase;
       font-size: 1.5rem;
 
       @include m.mobile {

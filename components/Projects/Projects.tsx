@@ -35,7 +35,9 @@ export default function Projects({ projects, locale, translations }: Props) {
         <div className={s.grid}>
           {/* Interior List */}
           <div className={s.grid_item}>
-            <h3 className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+            <h3
+              className={`${s.type} ${locale === "ge" ? "fontArchyBold" : ""}`}
+            >
               {translations.interior}
             </h3>
             <Swiper
@@ -61,7 +63,9 @@ export default function Projects({ projects, locale, translations }: Props) {
 
           {/* Architecture List */}
           <div className={s.grid_item}>
-            <h3 className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+            <h3
+              className={`${s.type} ${locale === "ge" ? "fontArchyBold" : ""}`}
+            >
               {translations.architecture}
             </h3>
             <Swiper
@@ -87,7 +91,9 @@ export default function Projects({ projects, locale, translations }: Props) {
 
           {/* Object List */}
           <div className={s.grid_item}>
-            <h3 className={`${s.type} ${locale === "ge" ? "fontBolnisi" : ""}`}>
+            <h3
+              className={`${s.type} ${locale === "ge" ? "fontArchyBold" : ""}`}
+            >
               {translations.object}
             </h3>
             <Swiper

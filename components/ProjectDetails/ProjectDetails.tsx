@@ -106,19 +106,15 @@ export default function ProjectDetails({
       <div className={s.project_info}>
         <div className={s.info_item}>
           <span>{name_label}: </span>
-          <h4 className={locale === "ge" ? "fontBolnisi" : ""}>{title}</h4>
+          <p>{title}</p>
         </div>
         <div className={s.info_item}>
           <span>{category_label}: </span>
-          <h3 className={locale === "ge" ? "fontBolnisi" : ""}>
-            {translations[category as keyof typeof translations]}
-          </h3>
+          <p>{translations[category as keyof typeof translations]}</p>
         </div>
         <div className={s.info_item}>
-          <span className={s.desc_label}>{description_label}: </span>
-          <p className={`${locale === "ge" ? "fontArial" : ""} ${s.desc}`}>
-            {description}
-          </p>
+          <span>{description_label}: </span>
+          <p>{description}</p>
         </div>
       </div>
     </div>

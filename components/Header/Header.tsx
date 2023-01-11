@@ -26,7 +26,7 @@ export default function Header({ translations }: Props) {
   return (
     <div
       id="header"
-      className={`${s.header} ${locale === "ge" ? "fontBolnisi" : ""}`}
+      className={`${s.header} ${locale === "ge" ? "fontArchyBold" : ""}`}
     >
       <div className={s.logo}>
         <Link href="/">

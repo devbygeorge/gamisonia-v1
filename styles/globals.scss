@@ -1,32 +1,28 @@
 @use "./mixins.scss" as mix;
 
-// Import Fonts
+/* Import Fonts */
 @font-face {
-  font-family: Aquire;
-  src: url("/fonts/AquireLight.otf");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: Aquire;
-  src: url("/fonts/Aquire.otf");
+  font-family: ArchyRegular;
+  src: url("/fonts/ArchyRegular.ttf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: Aquire;
-  src: url("/fonts/AquireBold.otf");
-  font-weight: 700;
+  font-family: ArchyBold;
+  src: url("/fonts/ArchySemiBold.ttf");
+  font-weight: 600;
 }
 
 @font-face {
-  font-family: ArialGeo;
-  src: url("/fonts/ArialGeo.ttf");
+  font-family: TypoOvalRegular;
+  src: url("/fonts/TypoOvalRegular.otf");
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: Bolnisi;
-  src: url("/fonts/BolnisiMtavruli.ttf");
+  font-family: TypoOvalBold;
+  src: url("/fonts/TypoOvalBold.otf");
+  font-weight: 600;
 }
 
 // Root Variables
@@ -38,7 +34,7 @@
 // Reset Styles
 html,
 body {
-  font-family: Ubuntu, sans-serif;
+  font-family: TypoOvalRegular, sans-serif;
 }
 
 html {
@@ -77,7 +73,8 @@ img {
   padding: 1rem 0;
   background-color: var(--color-dark);
   color: var(--color-light);
-  font-family: Aquire;
+  font-family: TypoOvalBold;
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -108,14 +105,19 @@ img {
   }
 }
 
-.fontBolnisi {
-  font-family: Bolnisi !important;
+/* Georgian Fonts */
+.fontArchyRegular {
+  font-family: ArchyRegular !important;
+  text-transform: lowercase !important;
+  line-height: 1;
 }
 
-.fontArial {
-  font-family: ArialGeo !important;
+.fontArchyBold {
+  font-family: ArchyBold !important;
+  text-transform: lowercase !important;
 }
 
+/* SwiperJS Override Styles */
 .swiper-pagination-progressbar-fill {
   background-color: var(--color-light) !important;
 }
