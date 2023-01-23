@@ -14,15 +14,8 @@
 }
 
 @font-face {
-  font-family: TypoOvalRegular;
-  src: url("/fonts/TypoOvalRegular.otf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: TypoOvalBold;
-  src: url("/fonts/TypoOvalBold.otf");
-  font-weight: 600;
+  font-family: FiraBook;
+  src: url("/fonts/FiraBook.otf");
 }
 
 // Root Variables
@@ -34,7 +27,7 @@
 // Reset Styles
 html,
 body {
-  font-family: TypoOvalRegular, sans-serif;
+  font-family: FiraBook, sans-serif;
 }
 
 html {
@@ -73,7 +66,7 @@ img {
   padding: 1rem 0;
   background-color: var(--color-dark);
   color: var(--color-light);
-  font-family: TypoOvalBold;
+  // font-family: FiraBook Bold;
   text-transform: uppercase;
   text-align: center;
 }
