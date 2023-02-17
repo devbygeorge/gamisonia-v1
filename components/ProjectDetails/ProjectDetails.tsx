@@ -67,8 +67,7 @@ export default function ProjectDetails({
             <Image
               src={urlFor(imageItem).url()}
               alt={title}
-              width={700}
-              height={600}
+              layout="fill"
               objectFit="cover"
               quality={100}
             />

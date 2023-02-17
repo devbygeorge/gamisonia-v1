@@ -59,6 +59,13 @@
 
   .imageItem {
     display: none;
+    width: 700px;
+    height: 600px;
+    max-height: 65vh;
+
+    @include m.mobile {
+      height: 248px;
+    }
 
     &.active {
       display: block;
