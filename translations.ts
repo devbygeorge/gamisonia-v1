@@ -27,7 +27,7 @@ export const en = {
 export const ge = {
   home: "მთავარი",
   projects: "პროექტები",
-  about: "ჩემს შესახებ",
+  about: "შესახებ",
   contact: "კონტაქტი",
 
   name: "სახელი და გვარი*",

@@ -16,7 +16,7 @@
 
       @include m.mobile {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: .75rem;
       }
     }
   }
@@ -27,14 +27,15 @@
     text-align: justify;
     padding-inline: 6rem 3rem;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include m.desktop {
+      max-height: 63vh;
+      overflow-y: auto;
+    }
 
     span {
-      // font-family: FiraBook Bold;
       text-transform: uppercase;
       font-size: 1.5rem;
+      font-weight: 600;
 
       @include m.mobile {
         font-size: 1.25rem;

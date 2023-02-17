@@ -2,21 +2,30 @@
 
 .project_item {
   .title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    // font-family: FiraBook Bold;
-    text-transform: uppercase;
-  }
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
 
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+  }
   .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+
     max-width: 290px;
-    line-height: 1.5;
     height: 2.8rem;
+    line-height: 1.5;
   }
 
   .image_wrapper {
     position: relative;
     height: 520px;
+    max-height: 57vh;
     margin-bottom: 0.75rem;
 
     @include m.mobile {
@@ -31,7 +40,7 @@
     margin-top: 0.5rem;
     font-size: 0.95rem;
     color: var(--color-dark);
-    // font-family: FiraBook Bold;
+    font-family: inherit;
     text-transform: uppercase;
 
     cursor: pointer;

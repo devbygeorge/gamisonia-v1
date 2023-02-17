@@ -34,7 +34,7 @@
   }
 
   .close_icon {
-    // font-family: FiraBook Bold;
+    font-family: FiraBook;
     text-transform: uppercase;
     position: absolute;
     top: 1rem;
@@ -89,6 +89,10 @@
     @include m.desktop {
       width: 150px;
     }
+
+    &.active {
+      border: 1px solid black;
+    }
   }
 
   .project_info {
@@ -102,21 +106,17 @@
   }
 
   .info_item {
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-transform: capitalize;
 
     &:not(:last-child) {
       margin-bottom: 0.75rem;
     }
 
-    @include m.mobile {
-      // font-size: 1rem;
-    }
-
     span {
       display: block;
       margin-bottom: 0.5rem;
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
 

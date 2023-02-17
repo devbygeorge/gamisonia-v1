@@ -2,7 +2,7 @@
 
 .hero {
   position: relative;
-  height: 700px;
+  height: 76.6vh;
 
   @include m.mobile {
     height: 350px;
@@ -27,7 +27,7 @@
   .heading_wrapper {
     position: absolute;
     right: 0;
-    bottom: 14rem;
+    bottom: 24.5vh;
 
     width: max(calc(50% - 12.25rem), 465px);
     padding: 0.525rem;
