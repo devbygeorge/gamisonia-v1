@@ -24,10 +24,7 @@ export default function Header({ translations }: Props) {
   };
 
   return (
-    <div
-      id="header"
-      className={`${s.header} ${locale === "ge" ? "fontArchyBold" : ""}`}
-    >
+    <div id="header" className={s.header}>
       <div className={s.logo}>
         <Link href="/">
           <Image

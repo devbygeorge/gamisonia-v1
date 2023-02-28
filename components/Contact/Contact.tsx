@@ -63,11 +63,7 @@ export default function Contact({ pageInfo, translations, locale }: Props) {
 
   return (
     <div id="contact" className={s.contact}>
-      <h2
-        className={`section-heading ${locale === "ge" ? "fontArchyBold" : ""}`}
-      >
-        {translations.contact}
-      </h2>
+      <h2 className="section-heading">{translations.contact}</h2>
       <div className="container">
         <div className={s.content}>
           <p className={s.info}>{pageInfo?.contactText}</p>

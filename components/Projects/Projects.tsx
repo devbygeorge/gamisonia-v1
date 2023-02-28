@@ -35,11 +35,7 @@ export default function Projects({ projects, locale, translations }: Props) {
         <div className={s.grid}>
           {/* Interior List */}
           <div className={s.grid_item}>
-            <h3
-              className={`${s.type} ${locale === "ge" ? "fontArchyBold" : ""}`}
-            >
-              {translations.interior}
-            </h3>
+            <h3 className={s.type}>{translations.interior}</h3>
             <Swiper
               slidesPerView={1}
               navigation={true}
@@ -63,11 +59,7 @@ export default function Projects({ projects, locale, translations }: Props) {
 
           {/* Architecture List */}
           <div className={s.grid_item}>
-            <h3
-              className={`${s.type} ${locale === "ge" ? "fontArchyBold" : ""}`}
-            >
-              {translations.architecture}
-            </h3>
+            <h3 className={s.type}>{translations.architecture}</h3>
             <Swiper
               slidesPerView={1}
               navigation={true}
@@ -91,11 +83,7 @@ export default function Projects({ projects, locale, translations }: Props) {
 
           {/* Object List */}
           <div className={s.grid_item}>
-            <h3
-              className={`${s.type} ${locale === "ge" ? "fontArchyBold" : ""}`}
-            >
-              {translations.object}
-            </h3>
+            <h3 className={s.type}>{translations.object}</h3>
             <Swiper
               slidesPerView={1}
               navigation={true}
