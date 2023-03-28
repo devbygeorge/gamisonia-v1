@@ -2,18 +2,6 @@
 
 /* Import Fonts */
 @font-face {
-  font-family: ArchyRegular;
-  src: url("/fonts/ArchyRegular.ttf");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: ArchyBold;
-  src: url("/fonts/ArchySemiBold.ttf");
-  font-weight: 600;
-}
-
-@font-face {
   font-family: FiraBook;
   src: url("/fonts/FiraBook.otf");
 }
@@ -95,18 +83,6 @@ img {
   @include mix.desktop {
     scroll-snap-align: end;
   }
-}
-
-/* Georgian Fonts */
-.fontArchyRegular {
-  font-family: ArchyRegular !important;
-  text-transform: lowercase !important;
-  line-height: 1;
-}
-
-.fontArchyBold {
-  font-family: ArchyBold !important;
-  text-transform: lowercase !important;
 }
 
 /* SwiperJS Override Styles */
