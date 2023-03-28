@@ -6,7 +6,6 @@ import s from "./ProjectDetails.module.scss";
 
 type Props = {
   project: Project;
-  locale: string | undefined;
   translations: Translations;
   activeProject: string;
   setActiveProject: Function;
@@ -14,7 +13,6 @@ type Props = {
 
 export default function ProjectDetails({
   project,
-  locale,
   translations,
   activeProject,
   setActiveProject,

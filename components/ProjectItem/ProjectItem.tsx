@@ -5,14 +5,12 @@ import s from "./ProjectItem.module.scss";
 
 type Props = {
   project: Project;
-  locale: string | undefined;
   translations: Translations;
   setActiveProject: Function;
 };
 
 export default function ProjectItem({
   project,
-  locale,
   translations,
   setActiveProject,
 }: Props) {

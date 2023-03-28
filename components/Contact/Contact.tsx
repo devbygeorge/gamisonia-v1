@@ -5,10 +5,9 @@ import { Translations, PageInfo } from "typings";
 type Props = {
   pageInfo: PageInfo;
   translations: Translations;
-  locale: string | undefined;
 };
 
-export default function Contact({ pageInfo, translations, locale }: Props) {
+export default function Contact({ pageInfo, translations }: Props) {
   const [values, setValues] = useState({
     name: "",
     email: "",

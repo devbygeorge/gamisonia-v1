@@ -13,7 +13,6 @@ type Props = {
 export default function Header({ translations }: Props) {
   const [menuActive, setMenuActive] = useState(false);
   const router = useRouter();
-  const { locale } = router;
 
   const handleMenuClose = () => setMenuActive(false);
   const handleMenuToggle = () => setMenuActive((prevState) => !prevState);

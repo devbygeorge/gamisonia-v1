@@ -6,10 +6,9 @@ import s from "./About.module.scss";
 type Props = {
   pageInfo: PageInfo;
   translations: Translations;
-  locale: string | undefined;
 };
 
-export default function About({ pageInfo, translations, locale }: Props) {
+export default function About({ pageInfo, translations }: Props) {
   return (
     <div id="about" className={s.about}>
       <h2 className="section-heading">{translations.about}</h2>

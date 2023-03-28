@@ -12,11 +12,10 @@ import { useState } from "react";
 
 type Props = {
   projects: Project[];
-  locale: string | undefined;
   translations: Translations;
 };
 
-export default function Projects({ projects, locale, translations }: Props) {
+export default function Projects({ projects, translations }: Props) {
   const [activeProject, setActiveProject] = useState("");
 
   const interiorProjects = projects?.filter(
@@ -48,7 +47,6 @@ export default function Projects({ projects, locale, translations }: Props) {
                 <SwiperSlide key={project._id}>
                   <ProjectItem
                     project={project}
-                    locale={locale}
                     translations={translations}
                     setActiveProject={setActiveProject}
                   />
@@ -72,7 +70,6 @@ export default function Projects({ projects, locale, translations }: Props) {
                 <SwiperSlide key={project._id}>
                   <ProjectItem
                     project={project}
-                    locale={locale}
                     translations={translations}
                     setActiveProject={setActiveProject}
                   />
@@ -96,7 +93,6 @@ export default function Projects({ projects, locale, translations }: Props) {
                 <SwiperSlide key={project._id}>
                   <ProjectItem
                     project={project}
-                    locale={locale}
                     translations={translations}
                     setActiveProject={setActiveProject}
                   />
@@ -109,7 +105,6 @@ export default function Projects({ projects, locale, translations }: Props) {
           <div key={project._id} className="full-project">
             <ProjectDetails
               project={project}
-              locale={locale}
               translations={translations}
               activeProject={activeProject}
               setActiveProject={setActiveProject}
