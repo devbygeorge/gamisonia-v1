@@ -1,14 +1,17 @@
+import { useState } from "react";
+
+import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import ProjectDetails from "@/components/ProjectDetails";
 import ProjectItem from "@/components/ProjectItem";
-import { Project, Translations } from "typings";
+import { Project, Translations } from "typings"
+
 import s from "./Projects.module.scss";
-import ProjectDetails from "../ProjectDetails";
-import { useState } from "react";
+
 
 type Props = {
   projects: Project[];

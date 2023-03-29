@@ -1,20 +1,17 @@
-import Head from "next/head";
 import { GetStaticProps } from "next";
-import { PageInfo, Project, Social } from "typings";
-
+import Head from "next/head";
+import { useRouter } from "next/router";
 import { groq } from "next-sanity";
-import { sanityClient } from "sanity";
 
-// Import Components
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
-import { useRouter } from "next/router";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
+import { sanityClient } from "sanity";
 import { en, ge } from "translations";
+import { PageInfo, Project, Social } from "typings";
 
 type Props = {
   pageInfo: PageInfo;
@@ -23,9 +20,7 @@ type Props = {
 };
 
 export default function Home({ pageInfo, projects, socials }: Props) {
-  const router = useRouter();
-  const { locale } = router;
-
+  const { locale } = useRouter();
   const translations = locale === "en" ? en : ge;
 
   return (

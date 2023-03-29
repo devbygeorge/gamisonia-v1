@@ -1,6 +1,8 @@
 import Image from "next/legacy/image";
-import { Project, Translations } from "typings";
+
 import { urlFor } from "sanity";
+import { Project, Translations } from "typings";
+
 import s from "./ProjectItem.module.scss";
 
 type Props = {

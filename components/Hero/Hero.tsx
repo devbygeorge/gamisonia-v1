@@ -1,6 +1,8 @@
 import Image from "next/legacy/image";
-import { PageInfo } from "typings";
+
 import { urlFor } from "sanity";
+import { PageInfo } from "typings";
+
 import s from "./Hero.module.scss";
 
 type Props = {

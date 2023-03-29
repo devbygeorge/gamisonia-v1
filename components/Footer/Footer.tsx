@@ -1,5 +1,7 @@
 import { SocialIcon } from "react-social-icons";
+
 import { Social } from "typings";
+
 import s from "./Footer.module.scss";
 
 type Props = {

@@ -1,10 +1,12 @@
-import Link from "next/link";
-import Image from "next/legacy/image";
 import { useState } from "react";
 
-import s from "./Header.module.scss";
+import Image from "next/legacy/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
+
 import { Translations } from "typings";
+
+import s from "./Header.module.scss";
 
 type Props = {
   translations: Translations;

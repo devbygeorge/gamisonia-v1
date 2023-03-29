@@ -1,7 +1,10 @@
-import Image from "next/legacy/image";
-import { Project, Translations } from "typings";
-import { urlFor } from "sanity";
 import { useState } from "react";
+
+import Image from "next/legacy/image";
+
+import { urlFor } from "sanity";
+import { Project, Translations } from "typings";
+
 import s from "./ProjectDetails.module.scss";
 
 type Props = {

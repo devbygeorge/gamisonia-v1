@@ -1,6 +1,8 @@
-import s from "./Contact.module.scss";
 import React, { useState } from "react";
-import { Translations, PageInfo } from "typings";
+
+import { PageInfo, Translations } from "typings";
+
+import s from "./Contact.module.scss";
 
 type Props = {
   pageInfo: PageInfo;
