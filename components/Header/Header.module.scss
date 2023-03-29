@@ -31,8 +31,9 @@
     padding-right: 1rem;
 
     @include m.mobile {
+      justify-content: center;
       min-width: 5rem;
-      padding-right: 1.5rem;
+      padding: 0;
     }
 
     background-color: var(--color-light);
