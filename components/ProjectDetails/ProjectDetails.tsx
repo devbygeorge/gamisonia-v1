@@ -23,7 +23,6 @@ export default function ProjectDetails({
   const [activeThumbIndex, setActiveThumbIndex] = useState(0);
 
   const { title, category, description, image } = project;
-  const { name_label, category_label, description_label } = translations;
 
   const handlePrevClick = () => {
     setActiveThumbIndex((state) =>
@@ -89,7 +88,12 @@ export default function ProjectDetails({
 
       <div className={s.image_thumbs}>
         {project?.image.map((image, index) => (
-          <div key={index} className={`${s.thumb_item} ${activeThumbIndex === index ? s.active : ""}`}>
+          <div
+            key={index}
+            className={`${s.thumb_item} ${
+              activeThumbIndex === index ? s.active : ""
+            }`}
+          >
             <Image
               key={index}
               src={urlFor(image).url()}
@@ -105,15 +109,15 @@ export default function ProjectDetails({
 
       <div className={s.project_info}>
         <div className={s.info_item}>
-          <span>{name_label}: </span>
+          <span>{translations["name"]}: </span>
           <p>{title}</p>
         </div>
         <div className={s.info_item}>
-          <span>{category_label}: </span>
-          <p>{translations[category as keyof typeof translations]}</p>
+          <span>{translations["category"]}: </span>
+          <p>{translations[category]}</p>
         </div>
         <div className={s.info_item}>
-          <span>{description_label}: </span>
+          <span>{translations["description"]}: </span>
           <p>{description}</p>
         </div>
       </div>

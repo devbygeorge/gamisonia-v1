@@ -64,7 +64,7 @@ export default function Contact({ pageInfo, translations }: Props) {
 
   return (
     <div id="contact" className={s.contact}>
-      <h2 className="section-title">{translations.contact}</h2>
+      <h2 className="section-title">{translations["contact"]}</h2>
       <div className="container">
         <div className={s.content}>
           <p className={s.info}>{pageInfo?.contactText}</p>
@@ -72,7 +72,7 @@ export default function Contact({ pageInfo, translations }: Props) {
             <input
               className={s.field}
               type="text"
-              placeholder={translations.name}
+              placeholder={translations["name"]}
               required
               value={values.name}
               onChange={(e) =>
@@ -85,7 +85,7 @@ export default function Contact({ pageInfo, translations }: Props) {
             <input
               className={s.field}
               type="email"
-              placeholder={translations.email}
+              placeholder={translations["email"]}
               required
               value={values.email}
               onChange={(e) =>
@@ -99,7 +99,7 @@ export default function Contact({ pageInfo, translations }: Props) {
               className={s.field}
               type="tel"
               pattern="[+]?[0-9]+"
-              placeholder={translations.phone}
+              placeholder={translations["phone"]}
               value={values.phone}
               onChange={(e) =>
                 setValues((prevState) => ({
@@ -111,7 +111,7 @@ export default function Contact({ pageInfo, translations }: Props) {
             <textarea
               className={s.field}
               rows={6}
-              placeholder={translations.message}
+              placeholder={translations["message"]}
               required
               value={values.message}
               onChange={(e) =>
@@ -126,14 +126,14 @@ export default function Contact({ pageInfo, translations }: Props) {
                 showSuccessResponse ? s.showResponse : ""
               }`}
             >
-              {translations.success_message}
+              {translations["message_sent_successfully"]}
             </p>
             <p
               className={`${s.response} ${
                 showFailureResponse ? s.showResponse : ""
               }`}
             >
-              {translations.failure_message}
+              {translations["failed_to_send_message"]}
             </p>
             <button
               className={`${s.submit} ${
@@ -141,7 +141,7 @@ export default function Contact({ pageInfo, translations }: Props) {
               }`}
               type="submit"
             >
-              {translations.submit}
+              {translations["submit"]}
             </button>
           </form>
         </div>

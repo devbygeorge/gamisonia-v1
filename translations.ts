@@ -1,51 +1,55 @@
 export const en = {
+  /* section titles */
   home: "home",
   projects: "projects",
   about: "about",
   contact: "contact",
 
-  name: "First and  Last Name*",
+  /* contact labels */
+  first_and_last_name: "First and Last Name*",
   email: "Email*",
   phone: "Phone",
   message: "Message*",
   submit: "Submit",
 
-  success_message: "Message sent successfully..",
-  failure_message: "Failed to send message..",
+  /* contact responses */
+  message_sent_successfully: "Message sent successfully..",
+  failed_to_send_message: "Failed to send message..",
 
+  /* project related */
   interior: "interior",
   architecture: "architecture",
   object: "object",
-
+  name: "name",
+  category: "category",
+  description: "description",
   more_details: "More Details",
-
-  name_label: "name",
-  category_label: "category",
-  description_label: "description",
 };
 
 export const ge = {
+  /* section titles */
   home: "მთავარი",
   projects: "პროექტები",
   about: "შესახებ",
   contact: "კონტაქტი",
 
-  name: "სახელი და გვარი*",
+  /* contact labels */
+  first_and_last_name: "სახელი და გვარი*",
   email: "იმეილი*",
   phone: "ტელეფონი",
   message: "შეტყობინება*",
   submit: "გაგზავნა",
 
-  success_message: "შეტყობინება წარმატებით გაიგზავნა..",
-  failure_message: "შეტყობინების გაგზავნა ვერ მოხერხდა..",
+  /* contact responses */
+  message_sent_successfully: "შეტყობინება წარმატებით გაიგზავნა..",
+  failed_to_send_message: "შეტყობინების გაგზავნა ვერ მოხერხდა..",
 
+  /* project related */
   interior: "ინტერიერი",
   architecture: "არქიტექტურა",
   object: "ობიექტი",
-
+  name: "სახელი",
+  category: "კატეგორია",
+  description: "აღწერა",
   more_details: "სრულად ნახვა",
-
-  name_label: "სახელი",
-  category_label: "კატეგორია",
-  description_label: "აღწერა",
 };

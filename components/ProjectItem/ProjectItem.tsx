@@ -33,7 +33,7 @@ export default function ProjectItem({
         onClick={() => setActiveProject(project._id)}
         className={s.button}
       >
-        {translations.more_details}
+        {translations["more_details"]}
       </button>
     </div>
   );

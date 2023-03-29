@@ -39,22 +39,5 @@ export interface Social extends SanityBody {
 }
 
 export interface Translations {
-  home: string;
-  projects: string;
-  about: string;
-  contact: string;
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  submit: string;
-  success_message: string;
-  failure_message: string;
-  interior: string;
-  architecture: string;
-  object: string;
-  more_details: string;
-  name_label: string;
-  category_label: string;
-  description_label: string;
+  [key: string]: string;
 }

@@ -45,7 +45,7 @@ export default function Header({ translations }: Props) {
           <ul className={s.list}>
             <li className={s.item}>
               <Link className={s.link} href="/" onClick={handleMenuClose}>
-                {translations.home}
+                {translations["home"]}
               </Link>
             </li>
             <li className={s.item}>
@@ -55,7 +55,7 @@ export default function Header({ translations }: Props) {
                 scroll={false}
                 onClick={handleMenuClose}
               >
-                {translations.projects}
+                {translations["projects"]}
               </Link>
             </li>
             <li className={s.item}>
@@ -65,7 +65,7 @@ export default function Header({ translations }: Props) {
                 scroll={false}
                 onClick={handleMenuClose}
               >
-                {translations.about}
+                {translations["about"]}
               </Link>
             </li>
             <li className={s.item}>
@@ -75,7 +75,7 @@ export default function Header({ translations }: Props) {
                 scroll={false}
                 onClick={handleMenuClose}
               >
-                {translations.contact}
+                {translations["contact"]}
               </Link>
             </li>
           </ul>
