@@ -26,7 +26,7 @@ export default function Hero({ pageInfo }: Props) {
         <h1 className={s.heading}>
           <div className={s.heading_desktop}>
             <Image
-              src="/images/heading.svg"
+              src="/images/hero-heading.svg"
               alt="gamisonia"
               width={442}
               height={57}
@@ -37,7 +37,7 @@ export default function Hero({ pageInfo }: Props) {
           </div>
           <div className={s.heading_mobile}>
             <Image
-              src="/images/heading-m.svg"
+              src="/images/hero-heading-mobile.svg"
               alt="gamisonia"
               width={267}
               height={35}

@@ -47,7 +47,7 @@ export default function ProjectDetails({
         <button className={s.chevron_button} onClick={handlePrevClick}>
           <div className={s.chevron_cont}>
             <Image
-              src="/images/chevron.png"
+              src="/images/chevron-right.png"
               alt="Left Arrow"
               layout="fill"
               objectFit="cover"
@@ -74,7 +74,7 @@ export default function ProjectDetails({
         <button className={s.chevron_button} onClick={handleNextClick}>
           <div className={s.chevron_cont}>
             <Image
-              src="/images/chevron.png"
+              src="/images/chevron-right.png"
               alt="Right Arrow"
               layout="fill"
               objectFit="cover"

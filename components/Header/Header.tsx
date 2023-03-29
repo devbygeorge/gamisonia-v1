@@ -27,7 +27,7 @@ export default function Header({ translations }: Props) {
       <div className={s.logo}>
         <Link href="/">
           <Image
-            src="/images/logo-white.png"
+            src="/images/logo-original.png"
             alt="Logo"
             width={40}
             height={40}
@@ -82,7 +82,7 @@ export default function Header({ translations }: Props) {
             <div className={s.flag}>
               <div onClick={() => handleLocaleChange("en")}>
                 <Image
-                  src="/images/uk-flag.png"
+                  src="/images/flag-uk.png"
                   alt="us flag"
                   width={30}
                   height={20}
@@ -92,7 +92,7 @@ export default function Header({ translations }: Props) {
             <div className={s.flag}>
               <div onClick={() => handleLocaleChange("ge")}>
                 <Image
-                  src="/images/ge-flag.png"
+                  src="/images/flag-ge.png"
                   alt="ge flag"
                   width={30}
                   height={20}
