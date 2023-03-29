@@ -13,7 +13,7 @@ type Props = {
 export default function About({ pageInfo, translations }: Props) {
   return (
     <div id="about" className={s.about}>
-      <h2 className="section-heading">{translations.about}</h2>
+      <h2 className="section-title">{translations.about}</h2>
 
       <div className={s.content}>
         <div className="container">

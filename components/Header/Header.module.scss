@@ -2,7 +2,7 @@
 
 .header {
   padding-block: 1rem;
-  background-color: var(--color-dark);
+  background-color: var(--clr-dark);
   position: relative;
 
   font-size: 1.15rem;
@@ -36,7 +36,7 @@
       padding: 0;
     }
 
-    background-color: var(--color-light);
+    background-color: var(--clr-light);
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
     transition: 100ms;
@@ -82,7 +82,7 @@
       gap: 1rem;
 
       width: 50%;
-      background-color: var(--color-dark);
+      background-color: var(--clr-dark);
       padding: 4rem 1.25rem;
 
       position: fixed;
@@ -108,7 +108,7 @@
 
   .link {
     line-height: 0;
-    color: var(--color-light);
+    color: var(--clr-light);
 
     &:hover {
       text-decoration: underline;

@@ -64,7 +64,7 @@ export default function Contact({ pageInfo, translations }: Props) {
 
   return (
     <div id="contact" className={s.contact}>
-      <h2 className="section-heading">{translations.contact}</h2>
+      <h2 className="section-title">{translations.contact}</h2>
       <div className="container">
         <div className={s.content}>
           <p className={s.info}>{pageInfo?.contactText}</p>

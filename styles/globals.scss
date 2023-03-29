@@ -6,13 +6,13 @@
   src: url("/fonts/FiraBook.otf");
 }
 
-// Root Variables
+/* Root Variables */
 :root {
-  --color-dark: rgb(21, 21, 21);
-  --color-light: rgb(230, 230, 230);
+  --clr-dark: rgb(21, 21, 21);
+  --clr-light: rgb(230, 230, 230);
 }
 
-// Reset Styles
+/* Reset Styles */
 html,
 body {
   font-family: FiraBook, sans-serif;
@@ -43,22 +43,22 @@ img {
   object-fit: cover;
 }
 
-// Global Styles
+/* Global Styles */
 .container {
-  max-width: 1320px;
+  max-width: 82.5rem;
   margin-inline: auto;
-  padding: 0 1rem;
+  padding-inline: 1rem;
 }
 
-.section-heading {
-  padding: 1rem 0;
-  background-color: var(--color-dark);
-  color: var(--color-light);
+.section-title {
+  padding-block: 1rem;
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
   text-transform: uppercase;
   text-align: center;
 }
 
-.desktop-snap {
+.snap {
   @include mix.desktop {
     height: 100vh;
     overflow-y: scroll;
@@ -67,27 +67,27 @@ img {
   }
 }
 
-.desktop-snap-start {
+.snap-start {
   @include mix.desktop {
     scroll-snap-align: start;
   }
 }
 
-.desktop-snap-center {
+.snap-center {
   @include mix.desktop {
     scroll-snap-align: center;
   }
 }
 
-.desktop-snap-end {
+.snap-end {
   @include mix.desktop {
     scroll-snap-align: end;
   }
 }
 
-/* SwiperJS Override Styles */
+/* Swiper.js Override Styles */
 .swiper-pagination-progressbar-fill {
-  background-color: var(--color-light) !important;
+  background-color: var(--clr-light) !important;
 }
 
 .swiper-pagination-progressbar {
@@ -96,6 +96,6 @@ img {
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: var(--color-light) !important;
+  color: var(--clr-light) !important;
   transform: translateY(-3rem);
 }

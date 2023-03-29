@@ -2,7 +2,7 @@
 
 .footer {
   padding: 1.25rem 0;
-  background-color: var(--color-dark);
+  background-color: var(--clr-dark);
 
   .list {
     display: flex;
@@ -17,7 +17,7 @@
   }
 
   .link {
-    color: var(--color-light);
+    color: var(--clr-light);
     font-size: 1.25rem;
 
     &:hover {
