@@ -9,31 +9,35 @@ type Props = {
 };
 
 export default function Footer({ socials }: Props) {
-  const sortedSocials = socials?.sort((a, b) =>
+  const orderedSocials = socials?.sort((a, b) =>
     ("" + a.title).localeCompare(b.title)
   );
+
+  const renderSocialIcon = (id: string, url: string) => {
+    return (
+      <SocialIcon
+        key={id}
+        url={url}
+        target="_blank"
+        rel="noreferrer"
+        fgColor="rgb(230,230,230)"
+        bgColor="transparent"
+        style={{
+          width: "45px",
+          height: "45px",
+        }}
+      />
+    );
+  };
 
   return (
     <div id="footer" className={s.footer}>
       <div className="container">
-        <ul className={s.list}>
-          {sortedSocials?.map((social) => (
-            <li key={social?._id} className={s.item}>
-              <SocialIcon
-                url={social?.url}
-                fgColor="rgb(230,230,230)"
-                bgColor="transparent"
-                className={s.link}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  width: "45px",
-                  height: "45px",
-                }}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className={s.socials}>
+          {orderedSocials?.map((social) =>
+            renderSocialIcon(social["_id"], social["url"])
+          )}
+        </div>
       </div>
     </div>
   );

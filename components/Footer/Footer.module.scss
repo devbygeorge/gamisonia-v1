@@ -1,27 +1,18 @@
 @use "@/styles/mixins.scss" as m;
 
 .footer {
-  padding: 1.25rem 0;
+  padding-block: 1.25rem;
   background-color: var(--clr-dark);
+}
 
-  .list {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
+.socials {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 
-    @include m.mobile {
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-  }
-
-  .link {
-    color: var(--clr-light);
-    font-size: 1.25rem;
-
-    &:hover {
-      color: white;
-    }
+  @include m.mobile {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 }

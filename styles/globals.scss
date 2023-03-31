@@ -48,6 +48,7 @@ img {
   max-width: 82.5rem;
   margin-inline: auto;
   padding-inline: 1rem;
+  position: relative;
 }
 
 .section-title {
@@ -56,6 +57,22 @@ img {
   color: var(--clr-light);
   text-transform: uppercase;
   text-align: center;
+}
+
+.flex-mobile {
+  display: flex;
+
+  @include mix.desktop {
+    display: none;
+  }
+}
+
+.flex-desktop {
+  display: flex;
+
+  @include mix.mobile {
+    display: none;
+  }
 }
 
 .snap {

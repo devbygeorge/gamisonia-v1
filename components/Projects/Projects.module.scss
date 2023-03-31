@@ -1,57 +1,29 @@
 @use "@/styles/mixins.scss" as m;
 
 .projects {
+  position: relative;
   background-color: var(--clr-dark);
   color: var(--clr-light);
-  position: relative;
+}
 
-  .grid {
-    display: flex;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--clr-light);
+.content {
+  --gap: 1.25rem;
 
-    @include m.mobile {
-      flex-direction: column;
-    }
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--clr-light);
+
+  display: grid;
+  grid-template-columns: 100%;
+  gap: var(--gap);
+
+  @include m.desktop {
+    --gap: 0.75rem;
+    grid-template-columns: repeat(3, calc((100% - var(--gap) * 2) / 3));
   }
+}
 
-  .grid_item {
-    width: 33.3%;
-
-    &:first-child {
-      padding-right: 0.75rem;
-    }
-
-    &:nth-child(2) {
-      padding-inline: 0.75rem;
-    }
-
-    &:last-child {
-      padding-left: 0.75rem;
-    }
-
-    @include m.mobile {
-      width: 100%;
-
-      &:first-child {
-        padding: 0;
-        margin-bottom: 1.25rem;
-      }
-
-      &:nth-child(2) {
-        padding: 0;
-        margin-bottom: 1.25rem;
-      }
-
-      &:last-child {
-        padding: 0;
-      }
-    }
-  }
-
-  .type {
-    font-size: 1.35rem;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-  }
+.category_name {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }

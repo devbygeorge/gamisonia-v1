@@ -1,0 +1,163 @@
+@use "@/styles/mixins.scss" as m;
+
+.project_modal {
+  --gap: 0.4rem;
+
+  position: fixed;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+
+  padding: 0.5rem;
+  background-color: #333;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+
+  transition: 300ms;
+  visibility: hidden;
+  opacity: 0;
+
+  display: grid;
+  grid-template-rows: 248px auto auto;
+  grid-template-areas: "image" "thumbs" "details";
+  gap: var(--gap);
+
+  @include m.desktop {
+    width: 80%;
+    position: absolute;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: min(600px, 55vh) auto;
+    grid-template-areas: "image details" "thumbs details";
+  }
+
+  &[data-visible="true"] {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.close_button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  border: none;
+  text-transform: uppercase;
+  background-color: unset;
+  font-family: inherit;
+  font-size: 2rem;
+  color: inherit;
+  cursor: pointer;
+  z-index: 1;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.image_container {
+  grid-area: image;
+  position: relative;
+}
+
+.image {
+  display: none;
+
+  &[data-visible="true"] {
+    display: block;
+  }
+}
+
+.thumbs {
+  grid-area: thumbs;
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--gap);
+
+  padding-bottom: var(--gap);
+  overflow-x: scroll;
+}
+
+.thumb {
+  --thumb-width: 100px;
+  --thumb-height: 100px;
+
+  position: relative;
+  width: var(--thumb-width);
+  height: var(--thumb-height);
+  cursor: pointer;
+
+  &[data-visible="true"] {
+    border: 1px solid black;
+  }
+
+  @include m.desktop {
+    --thumb-width: 140px;
+    --thumb-height: 140px;
+  }
+}
+
+.details {
+  grid-area: details;
+
+  @include m.desktop {
+    padding-top: 1rem;
+    padding-inline: 0.5rem;
+  }
+}
+
+.detail_item {
+  font-size: 1rem;
+  text-transform: capitalize;
+
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+
+  span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+.chevron_button {
+  display: inline-flex;
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  opacity: 0.8;
+
+  div {
+    width: 32px;
+    height: 32px;
+
+    @include m.desktop {
+      width: 52px;
+      height: 52px;
+    }
+
+    filter: invert(1);
+  }
+
+  &:first-child {
+    left: 0.25rem;
+  }
+
+  &:last-child {
+    right: 0.25rem;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

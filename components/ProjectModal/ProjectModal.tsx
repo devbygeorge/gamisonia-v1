@@ -5,24 +5,24 @@ import Image from "next/legacy/image";
 import { urlFor } from "sanity";
 import { Project, Translations } from "typings";
 
-import s from "./ProjectDetails.module.scss";
+import s from "./ProjectModal.module.scss";
 
 type Props = {
   project: Project;
   translations: Translations;
-  activeProject: string;
-  setActiveProject: Function;
+  activeProjectID: string;
+  setActiveProjectID: Function;
 };
 
-export default function ProjectDetails({
+export default function ProjectModal({
   project,
   translations,
-  activeProject,
-  setActiveProject,
+  activeProjectID,
+  setActiveProjectID,
 }: Props) {
   const [activeThumbIndex, setActiveThumbIndex] = useState(0);
 
-  const { title, category, description, image } = project;
+  const { _id, title, category, description, image } = project;
 
   const handlePrevClick = () => {
     setActiveThumbIndex((state) =>
@@ -35,37 +35,39 @@ export default function ProjectDetails({
     );
   };
 
+  const closeProjectModal = () => {
+    setActiveProjectID("");
+  };
+
   return (
     <div
-      className={`${s.project_details} ${
-        project._id === activeProject ? s.active : ""
-      }`}
+      className={s.project_modal}
+      data-visible={_id === activeProjectID ? true : false}
     >
-      <div onClick={() => setActiveProject("")} className={s.close_icon}>
+      <button className={s.close_button} onClick={closeProjectModal}>
         X
-      </div>
+      </button>
 
-      <div className={s.main_image}>
+      <div className={s.image_container}>
         <button className={s.chevron_button} onClick={handlePrevClick}>
-          <div className={s.chevron_cont}>
+          <div>
             <Image
-              src="/images/chevron-right.png"
-              alt="Left Arrow"
+              src="/images/chevron-left.png"
+              alt="Chevron left icon"
               layout="fill"
               objectFit="cover"
               quality={100}
             />
           </div>
         </button>
-        {image?.map((imageItem, index) => (
+        {image?.map((item, i) => (
           <div
-            key={index}
-            className={`${s.imageItem} ${
-              activeThumbIndex === index ? s.active : ""
-            }`}
+            key={i}
+            className={s.image}
+            data-visible={activeThumbIndex === i ? true : false}
           >
             <Image
-              src={urlFor(imageItem).url()}
+              src={urlFor(item).url()}
               alt={title}
               layout="fill"
               objectFit="cover"
@@ -74,10 +76,10 @@ export default function ProjectDetails({
           </div>
         ))}
         <button className={s.chevron_button} onClick={handleNextClick}>
-          <div className={s.chevron_cont}>
+          <div>
             <Image
               src="/images/chevron-right.png"
-              alt="Right Arrow"
+              alt="Chevron right icon"
               layout="fill"
               objectFit="cover"
               quality={100}
@@ -86,37 +88,36 @@ export default function ProjectDetails({
         </button>
       </div>
 
-      <div className={s.image_thumbs}>
-        {project?.image.map((image, index) => (
+      <div className={s.thumbs}>
+        {image.map((item, i) => (
           <div
-            key={index}
-            className={`${s.thumb_item} ${
-              activeThumbIndex === index ? s.active : ""
-            }`}
+            key={i}
+            className={s.thumb}
+            data-visible={activeThumbIndex === i ? true : false}
           >
             <Image
-              key={index}
-              src={urlFor(image).url()}
+              key={i}
+              src={urlFor(item).url()}
               alt={title}
               layout="fill"
               objectFit="cover"
               quality={100}
-              onClick={() => setActiveThumbIndex(index)}
+              onClick={() => setActiveThumbIndex(i)}
             />
           </div>
         ))}
       </div>
 
-      <div className={s.project_info}>
-        <div className={s.info_item}>
+      <div className={s.details}>
+        <div className={s.detail_item}>
           <span>{translations["name"]}: </span>
           <p>{title}</p>
         </div>
-        <div className={s.info_item}>
+        <div className={s.detail_item}>
           <span>{translations["category"]}: </span>
           <p>{translations[category]}</p>
         </div>
-        <div className={s.info_item}>
+        <div className={s.detail_item}>
           <span>{translations["description"]}: </span>
           <p>{description}</p>
         </div>

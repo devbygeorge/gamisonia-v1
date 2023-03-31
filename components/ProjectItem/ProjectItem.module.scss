@@ -1,53 +1,51 @@
 @use "@/styles/mixins.scss" as m;
 
-.project_item {
-  .title {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow-y: hidden;
+.thumbnail {
+  position: relative;
+  height: 13.75rem;
+  max-height: 57vh;
+  margin-bottom: 0.75rem;
 
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    font-size: 1.25rem;
+  @include m.desktop {
+    height: 32.5rem;
   }
-  .description {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow-y: hidden;
+}
 
-    max-width: 290px;
-    height: 2.8rem;
-    line-height: 1.5;
-  }
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
 
-  .image_wrapper {
-    position: relative;
-    height: 520px;
-    max-height: 57vh;
-    margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
 
-    @include m.mobile {
-      height: 220px;
-    }
-  }
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
 
-  .button {
-    width: 100%;
-    background-color: var(--clr-light);
-    padding: 0.5rem 0.5rem;
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    color: var(--clr-dark);
-    font-family: inherit;
-    text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  max-width: 18.125rem;
+  height: 2.8rem;
+  line-height: 1.5;
+}
 
-    cursor: pointer;
-    border: none;
+.button {
+  width: 100%;
+  background-color: var(--clr-light);
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--clr-dark);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
 
-    &:hover {
-      opacity: 0.9;
-    }
+  &:hover {
+    opacity: 0.9;
   }
 }

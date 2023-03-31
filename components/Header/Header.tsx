@@ -8,26 +8,59 @@ import { Translations } from "typings";
 
 import s from "./Header.module.scss";
 
+const links = [
+  {
+    name: "home",
+    url: "/",
+  },
+  {
+    name: "projects",
+    url: "/#projects",
+  },
+  {
+    name: "about",
+    url: "/#about",
+  },
+  {
+    name: "contact",
+    url: "/#contact",
+  },
+];
+
+const locales = [
+  {
+    name: "USA",
+    path: "/images/flag-usa.png",
+    code: "en",
+  },
+  {
+    name: "GEO",
+    path: "/images/flag-geo.png",
+    code: "ge",
+  },
+];
+
 type Props = {
   translations: Translations;
 };
 
 export default function Header({ translations }: Props) {
-  const [menuActive, setMenuActive] = useState(false);
+  const [isNavbarActive, setNavbarActive] = useState(false);
   const router = useRouter();
 
-  const handleMenuClose = () => setMenuActive(false);
-  const handleMenuToggle = () => setMenuActive((prevState) => !prevState);
+  const handleNavbarClose = () => setNavbarActive(false);
+  const handleNavbarToggle = () => setNavbarActive((prevState) => !prevState);
 
   const handleLocaleChange = (locale: string) => {
     router.push("/", "/", { locale: locale });
-    handleMenuClose();
+    handleNavbarClose();
   };
 
   return (
     <div id="header" className={s.header}>
+      {/* Logo */}
       <div className={s.logo}>
-        <Link href="/">
+        <Link href="/" onClick={handleNavbarClose}>
           <Image
             src="/images/logo-original.png"
             alt="Logo"
@@ -36,71 +69,48 @@ export default function Header({ translations }: Props) {
           />
         </Link>
       </div>
-      <div className={`container ${s.content}`}>
-        <div
-          className={`${s.toggle} ${menuActive ? s.toggleActive : ""}`}
-          onClick={handleMenuToggle}
-        ></div>
-        <nav className={`${s.nav}  ${menuActive ? s.menuActive : ""}`}>
-          <ul className={s.list}>
-            <li className={s.item}>
-              <Link className={s.link} href="/" onClick={handleMenuClose}>
-                {translations["home"]}
-              </Link>
-            </li>
-            <li className={s.item}>
-              <Link
-                className={s.link}
-                href="/#projects"
-                scroll={false}
-                onClick={handleMenuClose}
-              >
-                {translations["projects"]}
-              </Link>
-            </li>
-            <li className={s.item}>
-              <Link
-                className={s.link}
-                href="/#about"
-                scroll={false}
-                onClick={handleMenuClose}
-              >
-                {translations["about"]}
-              </Link>
-            </li>
-            <li className={s.item}>
-              <Link
-                className={s.link}
-                href="/#contact"
-                scroll={false}
-                onClick={handleMenuClose}
-              >
-                {translations["contact"]}
-              </Link>
-            </li>
-          </ul>
 
-          <div className={s.flags}>
-            <div className={s.flag}>
-              <div onClick={() => handleLocaleChange("en")}>
+      {/* Menu Toggle */}
+      <button
+        className={s.toggle}
+        aria-expanded={isNavbarActive}
+        onClick={handleNavbarToggle}
+      ></button>
+
+      <div className="container">
+        {/* Navbar */}
+        <nav className={s.navbar} data-visible={isNavbarActive}>
+          {/* Menu Links */}
+          <div className={s.menu}>
+            {links.map((item, i) => (
+              <Link
+                key={i}
+                scroll={false}
+                href={item.url}
+                className={s.menu_link}
+                onClick={handleNavbarClose}
+              >
+                {translations[item.name]}
+              </Link>
+            ))}
+          </div>
+
+          {/* Locales Flags */}
+          <div className={s.locales}>
+            {locales.map((locale, i) => (
+              <div
+                key={i}
+                className={s.locale_item}
+                onClick={() => handleLocaleChange(locale.code)}
+              >
                 <Image
-                  src="/images/flag-uk.png"
-                  alt="us flag"
+                  src={locale.path}
+                  alt={locale.name}
                   width={30}
                   height={20}
                 />
               </div>
-            </div>
-            <div className={s.flag}>
-              <div onClick={() => handleLocaleChange("ge")}>
-                <Image
-                  src="/images/flag-ge.png"
-                  alt="ge flag"
-                  width={30}
-                  height={20}
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </nav>
       </div>

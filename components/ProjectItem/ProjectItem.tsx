@@ -8,17 +8,17 @@ import s from "./ProjectItem.module.scss";
 type Props = {
   project: Project;
   translations: Translations;
-  setActiveProject: Function;
+  setActiveProjectID: Function;
 };
 
 export default function ProjectItem({
   project,
   translations,
-  setActiveProject,
+  setActiveProjectID,
 }: Props) {
   return (
-    <div className={s.project_item}>
-      <div className={s.image_wrapper}>
+    <div>
+      <div className={s.thumbnail}>
         <Image
           src={urlFor(project?.image[0]).url()}
           alt={project?.title}
@@ -30,8 +30,8 @@ export default function ProjectItem({
       <h4 className={s.title}>{project?.title}</h4>
       <p className={s.description}>{project?.description}</p>
       <button
-        onClick={() => setActiveProject(project._id)}
         className={s.button}
+        onClick={() => setActiveProjectID(project._id)}
       >
         {translations["more_details"]}
       </button>

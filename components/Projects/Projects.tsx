@@ -6,12 +6,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import ProjectDetails from "@/components/ProjectDetails";
 import ProjectItem from "@/components/ProjectItem";
-import { Project, Translations } from "typings"
+import ProjectModal from "@/components/ProjectModal";
+import { Project, Translations } from "typings";
 
 import s from "./Projects.module.scss";
-
 
 type Props = {
   projects: Project[];
@@ -19,100 +18,67 @@ type Props = {
 };
 
 export default function Projects({ projects, translations }: Props) {
-  const [activeProject, setActiveProject] = useState("");
+  const [activeProjectID, setActiveProjectID] = useState("");
 
-  const interiorProjects = projects?.filter(
+  const interior = projects?.filter(
     (project) => project.category === "interior"
   );
-  const architectureProjects = projects?.filter(
+  const architecture = projects?.filter(
     (project) => project.category === "architecture"
   );
-  const objectProjects = projects?.filter(
-    (project) => project.category === "object"
-  );
+  const object = projects?.filter((project) => project.category === "object");
+
+  const renderProjectsByCategory = (
+    categoryName: string,
+    categoryProjects: Project[]
+  ) => {
+    return (
+      <div>
+        <h3 className={s.category_name}>{translations[categoryName]}</h3>
+        <Swiper
+          slidesPerView={1}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          pagination={{
+            type: "progressbar",
+          }}
+        >
+          {categoryProjects?.map((project) => (
+            <SwiperSlide key={project._id}>
+              <ProjectItem
+                project={project}
+                translations={translations}
+                setActiveProjectID={setActiveProjectID}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    );
+  };
 
   return (
     <div id="projects" className={s.projects}>
       <div className="container">
-        <div className={s.grid}>
-          {/* Interior List */}
-          <div className={s.grid_item}>
-            <h3 className={s.type}>{translations["interior"]}</h3>
-            <Swiper
-              slidesPerView={1}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              pagination={{
-                type: "progressbar",
-              }}
-            >
-              {interiorProjects?.map((project: Project) => (
-                <SwiperSlide key={project._id}>
-                  <ProjectItem
-                    project={project}
-                    translations={translations}
-                    setActiveProject={setActiveProject}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+        <div className={s.content}>
+          {/* Interior Projects */}
+          {renderProjectsByCategory("interior", interior)}
 
-          {/* Architecture List */}
-          <div className={s.grid_item}>
-            <h3 className={s.type}>{translations["architecture"]}</h3>
-            <Swiper
-              slidesPerView={1}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              pagination={{
-                type: "progressbar",
-              }}
-            >
-              {architectureProjects?.map((project: Project) => (
-                <SwiperSlide key={project._id}>
-                  <ProjectItem
-                    project={project}
-                    translations={translations}
-                    setActiveProject={setActiveProject}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          {/* Architecture Projects */}
+          {renderProjectsByCategory("architecture", architecture)}
 
-          {/* Object List */}
-          <div className={s.grid_item}>
-            <h3 className={s.type}>{translations["object"]}</h3>
-            <Swiper
-              slidesPerView={1}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              pagination={{
-                type: "progressbar",
-              }}
-            >
-              {objectProjects?.map((project: Project) => (
-                <SwiperSlide key={project._id}>
-                  <ProjectItem
-                    project={project}
-                    translations={translations}
-                    setActiveProject={setActiveProject}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          {/* Object Projects */}
+          {renderProjectsByCategory("object", object)}
         </div>
+
         {projects?.map((project) => (
-          <div key={project._id} className="full-project">
-            <ProjectDetails
-              project={project}
-              translations={translations}
-              activeProject={activeProject}
-              setActiveProject={setActiveProject}
-            />
-          </div>
+          <ProjectModal
+            key={project._id}
+            project={project}
+            translations={translations}
+            activeProjectID={activeProjectID}
+            setActiveProjectID={setActiveProjectID}
+          />
         ))}
       </div>
     </div>

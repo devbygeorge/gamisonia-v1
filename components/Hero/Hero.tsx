@@ -12,10 +12,10 @@ type Props = {
 export default function Hero({ pageInfo }: Props) {
   return (
     <div id="hero" className={s.hero}>
-      <div className={s.img}>
+      <div className={s.background_image}>
         <Image
           src={urlFor(pageInfo?.heroImage).url()}
-          alt="Interior"
+          alt="Interior image from database"
           layout="fill"
           objectFit="cover"
           objectPosition="center calc(50% - 6rem)"
@@ -24,32 +24,30 @@ export default function Hero({ pageInfo }: Props) {
         />
       </div>
 
-      <div className={s.heading_wrapper}>
-        <h1 className={s.heading}>
-          <div className={s.heading_desktop}>
-            <Image
-              src="/images/hero-heading.svg"
-              alt="gamisonia"
-              width={442}
-              height={57}
-              objectFit="cover"
-              quality={100}
-              priority
-            />
-          </div>
-          <div className={s.heading_mobile}>
-            <Image
-              src="/images/hero-heading-mobile.svg"
-              alt="gamisonia"
-              width={267}
-              height={35}
-              objectFit="cover"
-              quality={100}
-              priority
-            />
-          </div>
-        </h1>
-      </div>
+      <h1 className={s.heading}>
+        <div className="flex-mobile">
+          <Image
+            src="/images/hero-heading-mobile.svg"
+            alt="Gamisonia"
+            width={267}
+            height={35}
+            objectFit="cover"
+            quality={100}
+            priority
+          />
+        </div>
+        <div className="flex-desktop">
+          <Image
+            src="/images/hero-heading.svg"
+            alt="Gamisonia"
+            width={442}
+            height={57}
+            objectFit="cover"
+            quality={100}
+            priority
+          />
+        </div>
+      </h1>
     </div>
   );
 }
