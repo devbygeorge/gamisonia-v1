@@ -16,14 +16,14 @@ export default function Contact({ pageInfo, translations }: Props) {
     phone: "",
     message: "",
   });
-  const [showSuccessResponse, setShowSuccessResponse] = useState(false);
-  const [showFailureResponse, setShowFailureResponse] = useState(false);
+  const [isSuccessResponse, setSuccessResponse] = useState(false);
+  const [isFailureResponse, setFailureResponse] = useState(false);
   const [isSubmitDisabled, setSubmitDisabled] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Clear input values
+    /* Clear input values */
     setValues({
       name: "",
       email: "",
@@ -33,7 +33,7 @@ export default function Contact({ pageInfo, translations }: Props) {
 
     setSubmitDisabled(true);
 
-    // Send data to backend
+    /* Send data to backend */
     const res = await fetch("/api/mail", {
       method: "post",
       body: JSON.stringify({
@@ -44,107 +44,97 @@ export default function Contact({ pageInfo, translations }: Props) {
       }),
     });
 
-    // Show correct responses
+    // Handle success and failure responses
     if (res.status === 200) {
-      setShowSuccessResponse(true);
+      setSuccessResponse(true);
 
       setTimeout(() => {
-        setShowSuccessResponse(false);
+        setSuccessResponse(false);
         setSubmitDisabled(false);
       }, 2000);
     } else {
-      setShowFailureResponse(true);
+      setFailureResponse(true);
 
       setTimeout(() => {
-        setShowFailureResponse(false);
+        setFailureResponse(false);
         setSubmitDisabled(false);
       }, 2000);
     }
   };
 
+  const handleValueChange = (e: any, field: string) => {
+    setValues((prevState) => ({
+      ...prevState,
+      [field]: e.target.value,
+    }));
+  };
+
   return (
     <div id="contact" className={s.contact}>
       <h2 className="section-title">{translations["contact"]}</h2>
-      <div className="container">
-        <div className={s.content}>
-          <p className={s.info}>{pageInfo?.contactText}</p>
-          <form className={s.form} onSubmit={handleSubmit}>
-            <input
-              className={s.field}
-              type="text"
-              placeholder={translations["name"]}
-              required
-              value={values.name}
-              onChange={(e) =>
-                setValues((prevState) => ({
-                  ...prevState,
-                  name: e.target.value,
-                }))
-              }
-            />
-            <input
-              className={s.field}
-              type="email"
-              placeholder={translations["email"]}
-              required
-              value={values.email}
-              onChange={(e) =>
-                setValues((prevState) => ({
-                  ...prevState,
-                  email: e.target.value,
-                }))
-              }
-            />
-            <input
-              className={s.field}
-              type="tel"
-              pattern="[+]?[0-9]+"
-              placeholder={translations["phone"]}
-              value={values.phone}
-              onChange={(e) =>
-                setValues((prevState) => ({
-                  ...prevState,
-                  phone: e.target.value,
-                }))
-              }
-            />
-            <textarea
-              className={s.field}
-              rows={6}
-              placeholder={translations["message"]}
-              required
-              value={values.message}
-              onChange={(e) =>
-                setValues((prevState) => ({
-                  ...prevState,
-                  message: e.target.value,
-                }))
-              }
-            ></textarea>
-            <p
-              className={`${s.response} ${
-                showSuccessResponse ? s.showResponse : ""
-              }`}
-            >
-              {translations["message_sent_successfully"]}
-            </p>
-            <p
-              className={`${s.response} ${
-                showFailureResponse ? s.showResponse : ""
-              }`}
-            >
-              {translations["failed_to_send_message"]}
-            </p>
-            <button
-              className={`${s.submit} ${
-                isSubmitDisabled ? s.submitDisabled : ""
-              }`}
-              type="submit"
-            >
-              {translations["submit"]}
-            </button>
-          </form>
-        </div>
+      <div className={`container ${s.content}`}>
+        {/* Contact text from database */}
+        <p className={s.appeal}>{pageInfo["contactText"]}</p>
+        {/* Contact Form */}
+        <form className={s.form} onSubmit={handleSubmit}>
+          {/* Name Field */}
+          <input
+            className={s.field}
+            type="text"
+            placeholder={translations["first_and_last_name"]}
+            value={values["name"]}
+            onChange={(e) => handleValueChange(e, "name")}
+            required
+          />
+          {/* Email Field */}
+          <input
+            className={s.field}
+            type="email"
+            placeholder={translations["email"]}
+            value={values["email"]}
+            onChange={(e) => handleValueChange(e, "email")}
+            required
+          />
+          {/* Phone Field */}
+          <input
+            className={s.field}
+            type="tel"
+            pattern="[+]?[0-9]+"
+            placeholder={translations["phone"]}
+            value={values["phone"]}
+            onChange={(e) => handleValueChange(e, "phone")}
+          />
+          {/* Message Field */}
+          <textarea
+            className={s.field}
+            rows={6}
+            placeholder={translations["message"]}
+            value={values.message}
+            onChange={(e) => handleValueChange(e, "message")}
+            required
+          ></textarea>
+          {/* Success and failure responses */}
+          <p
+            className={s.response}
+            data-visible={isSuccessResponse ? true : false}
+          >
+            {translations["message_sent_successfully"]}
+          </p>
+          <p
+            className={s.response}
+            data-visible={isFailureResponse ? true : false}
+          >
+            {translations["failed_to_send_message"]}
+          </p>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className={s.submit}
+            data-disabled={isSubmitDisabled ? true : false}
+          >
+            {translations["submit"]}
+          </button>
+        </form>
       </div>
     </div>
   );
