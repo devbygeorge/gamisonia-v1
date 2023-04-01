@@ -44,7 +44,7 @@ export default function Projects({ projects, translations }: Props) {
           }}
         >
           {categoryProjects?.map((project) => (
-            <SwiperSlide key={project._id}>
+            <SwiperSlide key={project['_id']}>
               <ProjectItem
                 project={project}
                 translations={translations}
@@ -73,7 +73,7 @@ export default function Projects({ projects, translations }: Props) {
 
         {projects?.map((project) => (
           <ProjectModal
-            key={project._id}
+            key={project['_id']}
             project={project}
             translations={translations}
             activeProjectID={activeProjectID}

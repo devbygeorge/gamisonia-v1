@@ -20,18 +20,18 @@ export default function ProjectItem({
     <div>
       <div className={s.thumbnail}>
         <Image
-          src={urlFor(project?.image[0]).url()}
+          src={urlFor(project["image"][0]).url()}
           alt={project?.title}
           layout="fill"
           objectFit="cover"
           quality={100}
         />
       </div>
-      <h4 className={s.title}>{project?.title}</h4>
-      <p className={s.description}>{project?.description}</p>
+      <h4 className={s.title}>{project["title"]}</h4>
+      <p className={s.description}>{project["description"]}</p>
       <button
         className={s.button}
-        onClick={() => setActiveProjectID(project._id)}
+        onClick={() => setActiveProjectID(project["_id"])}
       >
         {translations["more_details"]}
       </button>

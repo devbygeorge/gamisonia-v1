@@ -14,7 +14,7 @@ export default function Hero({ pageInfo }: Props) {
     <div id="hero" className={s.hero}>
       <div className={s.background_image}>
         <Image
-          src={urlFor(pageInfo?.heroImage).url()}
+          src={urlFor(pageInfo['heroImage']).url()}
           alt="Interior image from database"
           layout="fill"
           objectFit="cover"
