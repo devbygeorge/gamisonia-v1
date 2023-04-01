@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { groq } from "next-sanity";
 
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -9,7 +8,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
-import { sanityClient } from "sanity";
 import { en, ge } from "translations";
 import { PageInfo, Project, Social } from "typings";
 
@@ -37,22 +35,13 @@ export default function Home({ pageInfo, projects, socials }: Props) {
       </div>
 
       <div className="snap-center">
-        <Projects
-          projects={projects}
-          translations={translations}
-        />
+        <Projects projects={projects} translations={translations} />
       </div>
       <div className="snap-center">
-        <About
-          pageInfo={pageInfo}
-          translations={translations}
-        />
+        <About pageInfo={pageInfo} translations={translations} />
       </div>
       <div className="snap-center">
-        <Contact
-          pageInfo={pageInfo}
-          translations={translations}
-        />
+        <Contact pageInfo={pageInfo} translations={translations} />
       </div>
 
       <div className="snap-end">
@@ -63,34 +52,13 @@ export default function Home({ pageInfo, projects, socials }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
-  const pageInfoQuery = groq`
-    *[_type == "pageInfo"][0] {
-      "heroImage": heroImage,
-      "aboutTitle": aboutTitle.${locale},
-      "aboutInfo": aboutInfo.${locale},
-      "aboutImage": aboutImage,
-      "contactText": contactText.${locale},
-    }
-  `;
-
-  const projectsQuery = groq`
-    *[_type == "project"] | order(lower(name) asc) {
-      "_id": _id,
-      "name": name,
-      "category": category,
-      "title": title.${locale},
-      "description": description.${locale},
-      "image": image
-    }
-  `;
-
-  const socialsQuery = groq`
-    *[_type == "social"]
-  `;
-
-  const pageInfo = await sanityClient.fetch(pageInfoQuery);
-  const projects = await sanityClient.fetch(projectsQuery);
-  const socials = await sanityClient.fetch(socialsQuery);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/data`, {
+    method: "post",
+    body: JSON.stringify({
+      locale: locale,
+    }),
+  });
+  const { pageInfo, projects, socials } = await res.json();
 
   return {
     props: {
