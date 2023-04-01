@@ -16,10 +16,6 @@ This is a one page portfolio website made for an interior designer. The data com
 1. Integrate nodemailer service with your gmail account: https://nodemailer.com/usage/using-gmail/
 2. Create .env.local file, paste content from .env.example and fill with correct credentials
 
-For more information about Sanity CMS platform: https://www.sanity.io/docs
-
-## Usage
-
 ```sh
 # Install neccessary packages
 $ npm install
@@ -32,3 +28,5 @@ $ npm run build && npm start
 
 # Visit http://localhost:3000
 ```
+
+For more information about Sanity CMS platform: https://www.sanity.io/docs
