@@ -21,7 +21,7 @@
   opacity: 0;
 
   display: grid;
-  grid-template-rows: 248px auto auto;
+  grid-template-rows: 15.5rem auto auto;
   grid-template-areas: "image" "thumbs" "details";
   gap: var(--gap);
 
@@ -29,7 +29,7 @@
     width: 80%;
     position: absolute;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: min(600px, 55vh) auto;
+    grid-template-rows: min(37.5rem, 55vh) auto;
     grid-template-areas: "image details" "thumbs details";
   }
 
@@ -83,8 +83,8 @@
 }
 
 .thumb {
-  --thumb-width: 100px;
-  --thumb-height: 100px;
+  --thumb-width: 6.25rem;
+  --thumb-height: 6.25rem;
 
   position: relative;
   width: var(--thumb-width);
@@ -96,8 +96,8 @@
   }
 
   @include m.desktop {
-    --thumb-width: 140px;
-    --thumb-height: 140px;
+    --thumb-width: 8.75rem;
+    --thumb-height: 8.75rem;
   }
 }
 
@@ -138,12 +138,12 @@
   opacity: 0.8;
 
   div {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
 
     @include m.desktop {
-      width: 52px;
-      height: 52px;
+      width: 3.25rem;
+      height: 3.25rem;
     }
 
     filter: invert(1);
