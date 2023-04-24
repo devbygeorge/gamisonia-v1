@@ -1,37 +1,45 @@
-## Overview
+## Portfolio Website Documentation
 
-This is a one-page portfolio website made for an interior designer. The data comes from the Sanity CMS platform.
+### Introduction
 
-## Technologies I have used
+This is a one-page portfolio website for an interior designer. The data comes from the Sanity CMS platform.
 
-- HTML, SASS, TypeScript
-- Next.js
-- Sanity
-- Swiper.js
-- Nodemailer
-- React social icons
+### Technologies
 
-## Setup
+The following technologies were used to build the website:
 
-1. Create a project on [Sanity.io](https://sanity.io), open sanity.json inside the sanity directory, and replace the project id with yours.
-```sh
-# type the following command to deploy into your sanity repository
-$ sanity deploy
-```
-2. Integrate Nodemailer service with your Gmail account: https://nodemailer.com/usage/using-gmail/
-3. Create a .env.local file, paste content from the .env.example, and fill in with the correct credentials
+- TypeScript: Static typing for JavaScript.
+- Next.js: React framework for server-rendered applications.
+- Sanity: Headless CMS.
+- Swiper.js: Mobile-friendly slider library.
+- Sass: CSS preprocessor with advanced features.
+- Nodemailer: Email sending library.
+- React social icons: Social media icons for React apps.
 
-```sh
-# Install necessary packages
-$ npm install
+### Features
 
-# Run with the dev server
-$ npm run dev
+The portfolio website has the following features:
 
-# To run with production mode
-$ npm run build && npm start
+- Hero section.
+- Projects section showcasing recent projects with details and images.
+- About section.
+- Contact section with a contact form for visitors to send a message.
 
-# Visit http://localhost:3000
-```
+### Installation
 
-For more information about the Sanity CMS platform: https://www.sanity.io/docs
+To run the project locally, follow these steps:
+
+1. Create a project on [Sanity.io](https://sanity.io).
+2. Open sanity.json inside the sanity directory, and replace the project id with yours.
+3. Go to the sanity folder and deploy the project with `sanity deploy`.
+4. Integrate Nodemailer service with your Gmail account: https://nodemailer.com/usage/using-gmail/
+5. Create a .env.local file, paste content from the .env.example, and fill in with the correct credentials
+6. Clone the repository from GitHub.
+7. Open the terminal and navigate to the project directory.
+8. Install the dependencies using `npm install`.
+9. Start the development server using `npm start`.
+10. Open the browser and go to `http://localhost:3000`.
+
+### Conclusion
+
+Gamisonia.com is a clean and modern portfolio website developed by Giorgi Pasieshvili. It was built using modern technologies and best practices to provide a responsive, user-friendly experience for visitors. It showcases past projects, skills, and experience in an easy-to-navigate and visually pleasing manner.
