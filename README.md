@@ -30,15 +30,14 @@ The portfolio website has the following features:
 To run the project locally, follow these steps:
 
 1. Create a project on [Sanity.io](https://sanity.io).
-2. Open sanity.json inside the sanity directory, and replace the project id with yours.
-3. Go to the sanity folder and deploy the project with `sanity deploy`.
-4. Integrate Nodemailer service with your Gmail account: https://nodemailer.com/usage/using-gmail/
-5. Create a .env.local file, paste content from the .env.example, and fill in with the correct credentials
-6. Clone the repository from GitHub.
-7. Open the terminal and navigate to the project directory.
-8. Install the dependencies using `npm install`.
-9. Start the development server using `npm start`.
-10. Open the browser and go to `http://localhost:3000`.
+2. Clone the repository from GitHub.
+3. Open sanity.json inside the sanity directory, and replace the project id with yours.
+4. Go to the sanity folder and deploy the project with `sanity deploy`.
+5. Integrate Nodemailer service with your Gmail account: https://nodemailer.com/usage/using-gmail/
+6. Create a .env.local file, paste content from the .env.example, and fill in with the correct credentials
+7. Install the dependencies using `npm install`.
+8. Start the development server using `npm start`.
+9.  Open the browser and go to `http://localhost:3000`.
 
 ### Conclusion
 
