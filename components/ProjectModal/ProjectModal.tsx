@@ -52,7 +52,7 @@ export default function ProjectModal({
         <button className={s.chevron_button} onClick={handlePrevClick}>
           <div>
             <Image
-              src="/images/chevron-left.png"
+              src="/images/icon-left.png"
               alt="Chevron left icon"
               layout="fill"
               objectFit="cover"
@@ -78,7 +78,7 @@ export default function ProjectModal({
         <button className={s.chevron_button} onClick={handleNextClick}>
           <div>
             <Image
-              src="/images/chevron-right.png"
+              src="/images/icon-right.png"
               alt="Chevron right icon"
               layout="fill"
               objectFit="cover"
