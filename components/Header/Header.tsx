@@ -70,6 +70,7 @@ export default function Header({ translations }: Props) {
         className={s.toggle}
         aria-expanded={isNavbarActive}
         onClick={handleNavbarToggle}
+        aria-label="Menu Toggle"
       ></button>
 
       <div className="container">

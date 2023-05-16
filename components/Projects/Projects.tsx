@@ -44,7 +44,7 @@ export default function Projects({ projects, translations }: Props) {
           }}
         >
           {categoryProjects?.map((project) => (
-            <SwiperSlide key={project['_id']}>
+            <SwiperSlide key={project["_id"]}>
               <ProjectItem
                 project={project}
                 translations={translations}
@@ -59,6 +59,8 @@ export default function Projects({ projects, translations }: Props) {
 
   return (
     <div id="projects" className={s.projects}>
+      <h2 className="sr-only">{translations["projects"]}</h2>
+
       <div className="container">
         <div className={s.content}>
           {/* Interior Projects */}
@@ -73,7 +75,7 @@ export default function Projects({ projects, translations }: Props) {
 
         {projects?.map((project) => (
           <ProjectModal
-            key={project['_id']}
+            key={project["_id"]}
             project={project}
             translations={translations}
             activeProjectID={activeProjectID}
