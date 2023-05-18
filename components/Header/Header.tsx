@@ -68,10 +68,14 @@ export default function Header({ translations }: Props) {
       {/* Menu Toggle */}
       <button
         className={s.toggle}
-        aria-expanded={isNavbarActive}
         onClick={handleNavbarToggle}
+        aria-expanded={isNavbarActive}
         aria-label="Menu Toggle"
-      ></button>
+      >
+        <span className={s.bar}></span>
+        <span className={s.bar}></span>
+        <span className={s.bar}></span>
+      </button>
 
       <div className="container">
         {/* Navbar */}
