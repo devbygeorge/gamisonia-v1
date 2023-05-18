@@ -1,21 +1,17 @@
 @use "./mixins.scss" as mix;
-
-/* Import Fonts */
-@font-face {
-  font-family: FiraBook;
-  src: url("/fonts/FiraBook.otf");
-}
+@import "./scrollbar.scss";
+@import "./fonts.scss";
 
 /* Root Variables */
 :root {
-  --clr-dark: rgb(21, 21, 21);
-  --clr-light: rgb(230, 230, 230);
+  --clr-dark: #151515;
+  --clr-light: #e6e6e6;
 }
 
 /* Reset Styles */
 html,
 body {
-  font-family: FiraBook, sans-serif;
+  font-family: "FiraGO Book", sans-serif;
 }
 
 html {
@@ -57,6 +53,21 @@ img {
   color: var(--clr-light);
   text-transform: uppercase;
   text-align: center;
+}
+
+.opacity {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  background-color: #000000;
+  transition: 300ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+
+  &[data-active="true"] {
+    visibility: visible;
+    opacity: 0.5;
+  }
 }
 
 .sr-only {
@@ -123,5 +134,37 @@ img {
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--clr-light) !important;
-  transform: translateY(-3rem);
+  background-color: var(--clr-dark);
+  width: 40px !important;
+  height: 50px !important;
+  transition: 100ms ease-in-out;
+  opacity: 0.9;
+
+  &::after {
+    font-size: 27px !important;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include mix.desktop {
+    width: 50px !important;
+    height: 60px !important;
+
+    &::after {
+      font-size: 33px !important;
+    }
+  }
+}
+
+.swiper-slide-thumb-active {
+  border-color: var(--clr-dark) !important;
+}
+
+.project-item {
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: translateY(-76px) !important;
+  }
 }

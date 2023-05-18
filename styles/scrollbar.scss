@@ -1,0 +1,21 @@
+:root {
+  scrollbar-color: #333 transparent !important;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5rem; /* vertical scrollbar */
+  height: 0.5rem; /* horizontal scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #fff;
+  border: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #222;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #111;
+}

@@ -16,7 +16,9 @@ const sanityClient = createClient(config);
 
 type Data = {
   pageInfo: PageInfo;
-  projects: Project[];
+  interior: Project[];
+  architecture: Project[];
+  object: Project[];
   socials: Social[];
 };
 
@@ -36,8 +38,8 @@ export default async function handler(
     }
   `;
 
-  const projectsQuery = groq`
-    *[_type == "project"] | order(lower(name) asc) {
+  const interiorQuery = groq`
+    *[_type == "project" && category == "interior"] | order(lower(name) asc) {
       "_id": _id,
       "name": name,
       "category": category,
@@ -47,13 +49,47 @@ export default async function handler(
     }
   `;
 
+  const architectureQuery = groq`
+    *[_type == "project" && category == "architecture"] | order(lower(name) asc) {
+      "_id": _id,
+      "name": name,
+      "category": category,
+      "title": title.${locale},
+      "description": description.${locale},
+      "image": image
+    }
+  `;
+
+  const objectQuery = groq`
+  *[_type == "project" && category == "object"] | order(lower(name) asc) {
+    "_id": _id,
+    "name": name,
+    "category": category,
+    "title": title.${locale},
+    "description": description.${locale},
+    "image": image
+  }
+`;
+
   const socialsQuery = groq`
     *[_type == "social"]
   `;
 
-  const pageInfo = await sanityClient.fetch(pageInfoQuery);
-  const projects = await sanityClient.fetch(projectsQuery);
-  const socials = await sanityClient.fetch(socialsQuery);
+  const [pageInfo, interior, architecture, object, socials] = await Promise.all(
+    [
+      sanityClient.fetch(pageInfoQuery),
+      sanityClient.fetch(interiorQuery),
+      sanityClient.fetch(architectureQuery),
+      sanityClient.fetch(objectQuery),
+      sanityClient.fetch(socialsQuery),
+    ]
+  );
 
-  res.status(200).json({ pageInfo, projects, socials });
+  res.status(200).json({
+    pageInfo,
+    interior,
+    architecture,
+    object,
+    socials,
+  });
 }

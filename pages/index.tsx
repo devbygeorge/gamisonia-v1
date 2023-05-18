@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
@@ -12,23 +14,43 @@ import { PageInfo, Project, Social } from "typings";
 
 type Props = {
   pageInfo: PageInfo;
-  projects: Project[];
+  interior: Project[];
+  architecture: Project[];
+  object: Project[];
   socials: Social[];
 };
 
-export default function Home({ pageInfo, projects, socials }: Props) {
+export default function Home({
+  pageInfo,
+  interior,
+  architecture,
+  object,
+  socials,
+}: Props) {
+  const [modalActive, setModalActive] = useState(false);
   const { locale } = useRouter();
   const translations = locale === "en" ? en : ge;
 
   return (
     <div className="snap">
+      <div
+        className="opacity"
+        data-active={modalActive ? "true" : "false"}
+      ></div>
+
       <div className="snap-start">
         <Header translations={translations} />
         <Hero pageInfo={pageInfo} />
       </div>
 
       <div className="snap-center">
-        <Projects projects={projects} translations={translations} />
+        <Projects
+          interior={interior}
+          architecture={architecture}
+          object={object}
+          translations={translations}
+          setModalActive={setModalActive}
+        />
       </div>
       <div className="snap-center">
         <About pageInfo={pageInfo} translations={translations} />
@@ -51,14 +73,17 @@ export const getStaticProps: GetStaticProps<Props> = async ({ locale }) => {
       locale: locale,
     }),
   });
-  const { pageInfo, projects, socials } = await res.json();
+  const { pageInfo, interior, architecture, object, socials } =
+    await res.json();
 
   return {
     props: {
       pageInfo,
-      projects,
+      interior,
+      architecture,
+      object,
       socials,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };

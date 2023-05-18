@@ -1,71 +1,65 @@
 import { useState } from "react";
 
 import Image from "next/legacy/image";
+import type { Swiper as SwiperType } from 'swiper';
+import { Autoplay, Navigation, Thumbs } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { urlFor } from "sanity";
 import { Project, Translations } from "typings";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
 import s from "./ProjectModal.module.scss";
 
 type Props = {
-  project: Project;
+  activeProject: Project;
+  setActiveProject: Function;
   translations: Translations;
-  activeProjectID: string;
-  setActiveProjectID: Function;
+  setModalActive: Function;
 };
 
 export default function ProjectModal({
-  project,
+  activeProject,
+  setActiveProject,
   translations,
-  activeProjectID,
-  setActiveProjectID,
+  setModalActive,
 }: Props) {
-  const [activeThumbIndex, setActiveThumbIndex] = useState(0);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
-  const { _id, title, category, description, image } = project;
-
-  const handlePrevClick = () => {
-    setActiveThumbIndex((state) =>
-      state === 0 ? image.length - 1 : state - 1
-    );
-  };
-  const handleNextClick = () => {
-    setActiveThumbIndex((state) =>
-      state === image.length - 1 ? 0 : state + 1
-    );
-  };
+  const { title, category, description, image } = activeProject;
 
   const closeProjectModal = () => {
-    setActiveProjectID("");
+    setActiveProject(null);
+    setModalActive(false);
   };
 
   return (
-    <div
-      className={s.project_modal}
-      data-visible={_id === activeProjectID ? true : false}
-    >
-      <button className={s.close_button} onClick={closeProjectModal}>
-        X
+    <div className={s.project_modal}>
+      <button
+        className={s.close_button}
+        onClick={closeProjectModal}
+        aria-label="Close Button"
+      >
+        <span className={s.close_button_bar}></span>
+        <span className={s.close_button_bar}></span>
       </button>
 
-      <div className={s.image_container}>
-        <button className={s.chevron_button} onClick={handlePrevClick}>
-          <div>
-            <Image
-              src="/images/icon-left.png"
-              alt="Chevron left icon"
-              layout="fill"
-              objectFit="cover"
-              quality={100}
-            />
-          </div>
-        </button>
+      <Swiper
+        className={s.main_swiper}
+        slidesPerView={1}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[Autoplay, Navigation, Thumbs]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+      >
         {image?.map((item, i) => (
-          <div
-            key={i}
-            className={s.image}
-            data-visible={activeThumbIndex === i ? true : false}
-          >
+          <SwiperSlide key={i} className={s.main_image}>
             <Image
               src={urlFor(item).url()}
               alt={title}
@@ -73,28 +67,26 @@ export default function ProjectModal({
               objectFit="cover"
               quality={100}
             />
-          </div>
+          </SwiperSlide>
         ))}
-        <button className={s.chevron_button} onClick={handleNextClick}>
-          <div>
-            <Image
-              src="/images/icon-right.png"
-              alt="Chevron right icon"
-              layout="fill"
-              objectFit="cover"
-              quality={100}
-            />
-          </div>
-        </button>
-      </div>
+      </Swiper>
 
-      <div className={s.thumbs}>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={6}
+        slidesPerView={3}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[Navigation, Thumbs]}
+        className={s.thumbs}
+        breakpoints={{
+          400: {
+            slidesPerView: 4,
+          },
+        }}
+      >
         {image.map((item, i) => (
-          <div
-            key={i}
-            className={s.thumb}
-            data-visible={activeThumbIndex === i ? true : false}
-          >
+          <SwiperSlide key={i} className={s.thumb}>
             <Image
               key={i}
               src={urlFor(item).url()}
@@ -102,11 +94,10 @@ export default function ProjectModal({
               layout="fill"
               objectFit="cover"
               quality={100}
-              onClick={() => setActiveThumbIndex(i)}
             />
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
       <div className={s.details}>
         <div className={s.detail_item}>

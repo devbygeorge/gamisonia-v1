@@ -13,27 +13,28 @@ import { Project, Translations } from "typings";
 import s from "./Projects.module.scss";
 
 type Props = {
-  projects: Project[];
+  interior: Project[];
+  architecture: Project[];
+  object: Project[];
   translations: Translations;
+  setModalActive: Function;
 };
 
-export default function Projects({ projects, translations }: Props) {
-  const [activeProjectID, setActiveProjectID] = useState("");
-
-  const interior = projects?.filter(
-    (project) => project.category === "interior"
-  );
-  const architecture = projects?.filter(
-    (project) => project.category === "architecture"
-  );
-  const object = projects?.filter((project) => project.category === "object");
+export default function Projects({
+  interior,
+  architecture,
+  object,
+  translations,
+  setModalActive,
+}: Props) {
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   const renderProjectsByCategory = (
     categoryName: string,
     categoryProjects: Project[]
   ) => {
     return (
-      <div>
+      <div className="project-item">
         <h3 className={s.category_name}>{translations[categoryName]}</h3>
         <Swiper
           slidesPerView={1}
@@ -48,7 +49,8 @@ export default function Projects({ projects, translations }: Props) {
               <ProjectItem
                 project={project}
                 translations={translations}
-                setActiveProjectID={setActiveProjectID}
+                setActiveProject={setActiveProject}
+                setModalActive={setModalActive}
               />
             </SwiperSlide>
           ))}
@@ -73,15 +75,14 @@ export default function Projects({ projects, translations }: Props) {
           {renderProjectsByCategory("object", object)}
         </div>
 
-        {projects?.map((project) => (
+        {activeProject && (
           <ProjectModal
-            key={project["_id"]}
-            project={project}
+            activeProject={activeProject}
+            setActiveProject={setActiveProject}
             translations={translations}
-            activeProjectID={activeProjectID}
-            setActiveProjectID={setActiveProjectID}
+            setModalActive={setModalActive}
           />
-        ))}
+        )}
       </div>
     </div>
   );

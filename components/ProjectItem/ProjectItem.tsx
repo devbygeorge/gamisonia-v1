@@ -8,13 +8,15 @@ import s from "./ProjectItem.module.scss";
 type Props = {
   project: Project;
   translations: Translations;
-  setActiveProjectID: Function;
+  setActiveProject: Function;
+  setModalActive: Function;
 };
 
 export default function ProjectItem({
   project,
   translations,
-  setActiveProjectID,
+  setActiveProject,
+  setModalActive,
 }: Props) {
   return (
     <div>
@@ -31,7 +33,10 @@ export default function ProjectItem({
       <p className={s.description}>{project["description"]}</p>
       <button
         className={s.button}
-        onClick={() => setActiveProjectID(project["_id"])}
+        onClick={() => {
+          setActiveProject(project);
+          setModalActive(true);
+        }}
       >
         {translations["more_details"]}
       </button>

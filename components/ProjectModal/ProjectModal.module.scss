@@ -4,7 +4,7 @@
   --gap: 0.4rem;
 
   position: fixed;
-  width: 90%;
+  width: min(1200px, 90%);
   max-height: 85vh;
   overflow-y: auto;
 
@@ -14,91 +14,88 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
-
-  transition: 300ms;
-  visibility: hidden;
-  opacity: 0;
+  z-index: 4;
 
   display: grid;
-  grid-template-rows: 15.5rem auto auto;
-  grid-template-areas: "image" "thumbs" "details";
+  grid-template-rows: min(35vh, 300px) min(15vh, 100px);
+  grid-template-areas: "main-swiper" "thumbs" "details";
   gap: var(--gap);
 
   @include m.desktop {
-    width: 80%;
-    position: absolute;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: min(37.5rem, 55vh) auto;
-    grid-template-areas: "image details" "thumbs details";
-  }
-
-  &[data-visible="true"] {
-    visibility: visible;
-    opacity: 1;
+    grid-template-rows: min(50vh, 500px) min(25vh, 150px);
+    grid-template-areas: "main-swiper details" "thumbs details";
   }
 }
 
 .close_button {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+
+  width: 30px;
+  height: 30px;
+  background-color: var(--clr-dark);
+  transition: 100ms ease-in-out;
+  opacity: 0.9;
 
   border: none;
-  text-transform: uppercase;
-  background-color: unset;
-  font-family: inherit;
-  font-size: 2rem;
-  color: inherit;
   cursor: pointer;
-  z-index: 1;
 
   &:hover {
-    opacity: 0.9;
+    opacity: 1;
+  }
+
+  @include m.desktop {
+    width: 40px;
+    height: 40px;
   }
 }
 
-.image_container {
-  grid-area: image;
+.close_button_bar {
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background-color: #fff;
+
+  &:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  &:last-child {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+
+  @include m.desktop {
+    width: 30px;
+  }
+}
+
+.main_swiper {
+  grid-area: main-swiper;
+  width: 100%;
+  height: 100%;
+}
+
+.main_image {
   position: relative;
-}
-
-.image {
-  display: none;
-
-  &[data-visible="true"] {
-    display: block;
-  }
+  width: 100%;
+  height: 100%;
 }
 
 .thumbs {
   grid-area: thumbs;
-
-  display: grid;
-  grid-auto-flow: column;
-  gap: var(--gap);
-
-  padding-bottom: var(--gap);
-  overflow-x: scroll;
+  width: 100%;
+  height: 100%;
 }
 
 .thumb {
-  --thumb-width: 6.25rem;
-  --thumb-height: 6.25rem;
-
   position: relative;
-  width: var(--thumb-width);
-  height: var(--thumb-height);
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
   cursor: pointer;
-
-  &[data-visible="true"] {
-    border: 1px solid black;
-  }
-
-  @include m.desktop {
-    --thumb-width: 8.75rem;
-    --thumb-height: 8.75rem;
-  }
 }
 
 .details {
@@ -122,42 +119,5 @@
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.8rem;
-  }
-}
-
-.chevron_button {
-  display: inline-flex;
-  background-color: unset;
-  border: none;
-  cursor: pointer;
-
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  transform: translateY(-50%);
-  opacity: 0.8;
-
-  div {
-    width: 2rem;
-    height: 2rem;
-
-    @include m.desktop {
-      width: 3.25rem;
-      height: 3.25rem;
-    }
-
-    filter: invert(1);
-  }
-
-  &:first-child {
-    left: 0.25rem;
-  }
-
-  &:last-child {
-    right: 0.25rem;
-  }
-
-  &:hover {
-    opacity: 1;
   }
 }
