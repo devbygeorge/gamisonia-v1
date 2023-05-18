@@ -91,22 +91,21 @@
     gap: var(--nav-items-space);
 
     width: 50%;
-    height: 100%;
     background-color: var(--clr-dark);
     padding-inline: 1.25rem;
     padding-top: 3.4rem;
 
     position: fixed;
     top: 0;
-    right: 0;
+    bottom: 0;
+    right: -50%;
     z-index: 2;
 
     transition: 300ms ease-in-out;
-    transform: translateX(100%);
   }
 
   &[data-visible="true"] {
-    transform: translateX(0);
+    right: 0;
   }
 }
 
