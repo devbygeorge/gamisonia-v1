@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <!-- HTML Meta Tags --> */}
         <title>Gamisonia Design</title>
         <meta name="description" content="Portfolio of an interior designer" />
-        <link rel="icon" href="/images/icon.webp" />
+        <link rel="icon" href="/images/icon.svg" />
 
         {/* <!-- Facebook Meta Tags --> */}
         <meta property="og:url" content="https://gamisonia.com" />

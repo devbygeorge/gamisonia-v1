@@ -30,12 +30,12 @@ const links = [
 const locales = [
   {
     name: "USA",
-    path: "/images/flag-usa.png",
+    path: "/images/flag-usa.svg",
     code: "en",
   },
   {
     name: "GEO",
-    path: "/images/flag-geo.png",
+    path: "/images/flag-geo.svg",
     code: "ge",
   },
 ];
@@ -61,7 +61,7 @@ export default function Header({ translations }: Props) {
       {/* Logo */}
       <div className={s.logo}>
         <Link href="/" onClick={handleNavbarClose}>
-          <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
+          <Image src="/images/logo.svg" alt="Logo" width={40} height={40} />
         </Link>
       </div>
 
