@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Image from "next/legacy/image";
-import type { Swiper as SwiperType } from 'swiper';
+import type { Swiper as SwiperType } from "swiper";
 import { Autoplay, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -62,7 +62,7 @@ export default function ProjectModal({
           <SwiperSlide key={i} className={s.main_image}>
             <Image
               src={urlFor(item).url()}
-              alt={title}
+              alt={item["description"]}
               layout="fill"
               objectFit="cover"
               quality={100}
@@ -90,7 +90,7 @@ export default function ProjectModal({
             <Image
               key={i}
               src={urlFor(item).url()}
-              alt={title}
+              alt={item["description"]}
               layout="fill"
               objectFit="cover"
               quality={100}

@@ -10,6 +10,14 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "description",
+          title: "Description",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        },
+      ],
     },
     {
       name: "aboutTitle",
@@ -28,6 +36,14 @@ export default {
       options: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: "description",
+          title: "Description",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        },
+      ],
     },
     {
       name: "contactText",

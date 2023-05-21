@@ -23,7 +23,7 @@ export default function ProjectItem({
       <div className={s.thumbnail}>
         <Image
           src={urlFor(project["image"][0]).url()}
-          alt={project?.title}
+          alt={project["image"][0]["description"]}
           layout="fill"
           objectFit="cover"
           quality={100}

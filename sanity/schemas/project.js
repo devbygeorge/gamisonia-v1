@@ -40,6 +40,14 @@ export default {
           options: {
             hotspot: true,
           },
+          fields: [
+            {
+              name: "description",
+              title: "Description",
+              type: "string",
+              validation: (Rule) => Rule.required(),
+            },
+          ],
         },
       ],
     },

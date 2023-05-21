@@ -11,6 +11,7 @@ interface Image {
     _ref: string;
     _type: "reference";
   };
+  description: string;
 }
 
 export interface PageInfo extends SanityBody {

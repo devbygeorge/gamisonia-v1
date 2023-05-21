@@ -23,7 +23,7 @@ export default function About({ pageInfo, translations }: Props) {
         <div className={s.right_col}>
           <Image
             src={urlFor(pageInfo["aboutImage"]).url()}
-            alt="About image from database"
+            alt={pageInfo["aboutImage"]["description"]}
             layout="fill"
             objectFit="cover"
             quality={100}
