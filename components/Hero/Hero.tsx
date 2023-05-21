@@ -28,7 +28,7 @@ export default function Hero({ pageInfo }: Props) {
         <div className="flex-mobile">
           <Image
             src="/images/hero-heading-m.svg"
-            alt="Gamisonia"
+            alt="GAMISONIA"
             width={267}
             height={35}
             objectFit="cover"
@@ -39,7 +39,7 @@ export default function Hero({ pageInfo }: Props) {
         <div className="flex-desktop">
           <Image
             src="/images/hero-heading.svg"
-            alt="Gamisonia"
+            alt="GAMISONIA"
             width={442}
             height={57}
             objectFit="cover"
