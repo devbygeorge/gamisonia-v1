@@ -61,7 +61,7 @@ export default function Header({ translations }: Props) {
       {/* Logo */}
       <div className={s.logo}>
         <Link href="/" onClick={handleNavbarClose}>
-          <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
+          <Image src="/images/logo.svg" alt="Logo" width={40} height={40} />
         </Link>
       </div>
 
