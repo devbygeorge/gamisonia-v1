@@ -31,9 +31,10 @@ export default async function handler(
   const pageInfoQuery = groq`
     *[_type == "pageInfo"][0] {
       "heroImage": heroImage,
-      "aboutTitle": aboutTitle.${locale},
-      "aboutInfo": aboutInfo.${locale},
-      "aboutImage": aboutImage,
+      "aboutParagraph1": aboutParagraph1.${locale},
+      "aboutParagraph2": aboutParagraph2.${locale},
+      "aboutParagraph3": aboutParagraph3.${locale},
+      "aboutImageLegacy": aboutImageLegacy,
       "contactText": contactText.${locale},
     }
   `;

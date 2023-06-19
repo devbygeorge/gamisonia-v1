@@ -17,13 +17,16 @@ export default function About({ pageInfo, translations }: Props) {
 
       <div className={`container ${s.content}`}>
         <div className={s.left_col}>
-          <h3 className={s.content_title}>{pageInfo["aboutTitle"]}</h3>
-          <p>{pageInfo["aboutInfo"]}</p>
+          <h3 className={s.content_title}>{translations["hi_there"]}</h3>
+          <p>
+            {pageInfo["aboutParagraph1"]} {pageInfo["aboutParagraph2"]}{" "}
+            {pageInfo["aboutParagraph3"]}
+          </p>
         </div>
         <div className={s.right_col}>
           <Image
-            src={urlFor(pageInfo["aboutImage"]).url()}
-            alt={pageInfo["aboutImage"]["description"]}
+            src={urlFor(pageInfo["aboutImageLegacy"]).url()}
+            alt={pageInfo["aboutImageLegacy"]["description"]}
             layout="fill"
             objectFit="cover"
             quality={100}

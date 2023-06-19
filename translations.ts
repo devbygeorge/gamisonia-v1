@@ -4,6 +4,7 @@ export const en = {
   projects: "projects",
   about: "about",
   contact: "contact",
+  hi_there: "hi there!",
 
   /* contact labels */
   first_and_last_name: "First and Last Name*",
@@ -32,6 +33,7 @@ export const ge = {
   projects: "პროექტები",
   about: "შესახებ",
   contact: "კონტაქტი",
+  hi_there: "გამარჯობა!",
 
   /* contact labels */
   first_and_last_name: "სახელი და გვარი*",
