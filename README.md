@@ -2,7 +2,7 @@
 
 ### Introduction
 
-This is a clean and modern portfolio website developed for an interior designer. It was built using modern technologies and best practices to provide a responsive, user-friendly experience for visitors.
+This is a clean and modern portfolio website developed for an interior designer. It was built using modern technologies and best practices to provide visitors with a responsive, user-friendly experience.
 
 ### Technologies
 
